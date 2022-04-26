@@ -109,7 +109,7 @@ author:
   email            :
   links:
     - label: "Email"
-      icon: "fab fa-fw fa-paper-plane"
+      icon: "fab fa-fw fa-circle-envelope"
       url: "mailto:nick.gorichs@gmail.com"
     - label: "Kaggle"
       icon: "fab fa-fw fa-kaggle"
