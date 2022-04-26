@@ -104,8 +104,8 @@ analytics:
 author:
   name             : "Nick Gorichs"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Hello! My name is Nick Gorichs and this is my blog. I graduated from the University of Wisconsin - Platteville in 2019 with a bachelor's in Engineering Physics, but in my last year I took up a machine learning Research Assistant role with Dr. Hynek Boril. Since then, I have been learning all that I can about machine learning so that I can pursue it full time."
-  location         : "Wisconsin, USA"
+  bio              : "Hello! My name is Nick Gorichs. I received my bachelor's in Engineering Physics from the University of Wisconsin - Platteville, but in my last couple semesters I took up a machine learning Research Assistant role with Dr. Hynek Boril. Since then, I have been learning all that I can about machine learning so that I can pursue it full time."
+  location         : "Milwaukee, WI"
   email            :
   links:
     - label: "Email"
