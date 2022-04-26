@@ -109,10 +109,10 @@ author:
   email            :
   links:
     - label: "Email"
-      icon: "fab fa-solid fa-envelope-open"
+      icon: "fab fa-fw fa-envelope-open"
       url: "mailto:nick.gorichs@gmail.com"
     - label: "Kaggle"
-      icon: "fab fa-solid fa-code"
+      icon: "fab fa-fw fa-kaggle"
       url: "https://www.kaggle.com/filipinogambino"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
