@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "Nick Gorichs"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I really am an **amazing** person."
+  bio              : "Hello! My name is Nick Gorichs and this is my blog. I graduated from the University of Wisconsin - Platteville in 2019 with a bachelor's in Engineering Physics, but in my last year I took up a machine learning Research Assistant role with Dr. Hynek Boril. Since then, I have been learning all that I can about machine learning so that I can pursue it full time."
   location         : "Wisconsin, USA"
   email            :
   links:
@@ -112,7 +112,7 @@ author:
       icon: "fas fa-fw fa-envelope-square"
       url: "mailto:nick.gorichs@gmail.com"
     - label: "Kaggle"
-      icon: "fa-brands fa-kaggle"
+      icon: "fa-solid fa-k"
       url: "https://www.kaggle.com/filipinogambino"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
