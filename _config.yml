@@ -106,7 +106,7 @@ author:
   avatar           : "/assets/images/portrait.jpg"
   bio              : "*Electrical engineer* by day, aspiring *machine learning engineer* by night."
   location         : "Milwaukee, WI"
-  email            : "nick.gorichs@gmail.com"
+  email            : 
   links:
     - label: "Email"
       icon: "fab fa-fw fa-google"
