@@ -108,7 +108,7 @@ author:
   location         : "Milwaukee, WI"
   email            : 
   links:
-    - label: "Email"
+    - label: "Gmail"
       icon: "fab fa-fw fa-google"
       url: "mailto:nick.gorichs@gmail.com"
     - label: "Kaggle"
