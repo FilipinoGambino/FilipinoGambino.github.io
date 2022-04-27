@@ -141,6 +141,9 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
+      url: "https://github.com/FilipinoGambino"
+    - label: "Kaggle"
+      icon: "fab fa-fw fa-kaggle"
       url: "https://www.kaggle.com/filipinogambino"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
