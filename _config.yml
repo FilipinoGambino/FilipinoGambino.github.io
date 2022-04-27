@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "Nick Gorichs"
   avatar           : "/assets/images/portrait.jpg"
-  bio              : "Electrical engineer by day, aspiring machine learning engineer by night."
+  bio              : "*Electrical engineer* by day, aspiring *machine learning engineer* by night."
   location         : "Milwaukee, WI"
   email            : "nick.gorichs@gmail.com"
   links:
