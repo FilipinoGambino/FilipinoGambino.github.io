@@ -1,9 +1,10 @@
 ---
-title: "Test Post"
+title: "PettingZoo and MAgent's Combined Arms"
 categories:
-  - Test
+  - Paper Implementations
 tags:
-  - markup
+  - PettingZoo
+  - RL
 ---
 
 Here is a test post
