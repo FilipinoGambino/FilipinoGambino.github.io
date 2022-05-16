@@ -39,12 +39,12 @@ env = ss.pettingzoo_env_to_vec_env_v1(env)
 env = ss.concat_vec_envs_v1(env, 16, num_cpus=8, base_class='stable_baselines3')
 ```
 
-1. The ss.black_death wrapper is necessary to allow the environment to remove deceased agents which prevents unecessary calculations.
-2. The ss.agent_indicator wrapper adds four layers to our observation space since we have four types of agents. The 
-3. The ss.frame_skip wrapper allows the environment to repeat actions 1 to 3 times.
-4. The ss.pad_action_space wrapper is necessary to make each agent's action space, otherwise we would need a seperate final action linear layer.
-5. The ss.pettingzoo_env_to_vec_env wrapper makes a vector environment where there is one vector representing each agent.
-6. The ss.concat_vec_envs wrapper concatenates all of the vector environments which will be passed to through our model.
+1. The *black_death* wrapper is necessary to allow the environment to remove deceased agents which prevents unecessary calculations.
+2. The *agent_indicator* wrapper adds four layers to our observation space since we have four types of agents. The 
+3. The *frame_skip wrapper* allows the environment to repeat actions 1 to 3 times.
+4. The *pad_action_space* wrapper is necessary to make each agent's action space, otherwise we would need a seperate final action linear layer.
+5. The *pettingzoo_env_to_vec_env* wrapper makes a vector environment where there is one vector representing each agent.
+6. The *concat_vec_envs* wrapper concatenates all of the vector environments which will be passed to through our model.
 
 ```python
 policy_kwargs = dict(features_extractor_class=CombinedArmsFeatures,
