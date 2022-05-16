@@ -20,7 +20,6 @@ Hello and welcome to my first blog post! Today I'm going to be working with the 
 I'm going to be using a few wrappers from the supersuit library to improve training speed and performance.
 
 ```python
-
 import supersuit as ss
 from pettingzoo.magent import combined_arms_v6
 
@@ -32,20 +31,20 @@ env = combined_arms_v6.parallel_env(map_size=45,
                                     attack_penalty=-0.2,
                                     attack_opponent_reward=0.2)
                                     
-env = ss.black_death_v3(env) # Required for removing agents that died
+env = ss.black_death_v3(env)
 env = ss.agent_indicator_v0(env, type_only=True)
 env = ss.frame_skip_v0(env, (1,3))
-env = ss.pad_action_space_v0(env) # Pads the dissimilar agent action spaces so that they are uniform
+env = ss.pad_action_space_v0(env)
 env = ss.pettingzoo_env_to_vec_env_v1(env)
 env = ss.concat_vec_envs_v1(env, 16, num_cpus=8, base_class='stable_baselines3')
 ```
 
-1. The (*ss.black_death*) wrapper is necessary to allow the environment to remove deceased agents which prevents unecessary calculations.
-2. The (*ss.agent_indicator*) wrapper adds four layers to our observation space since we have four types of agents. The 
-3. The (*ss.frame_skip*) wrapper allows the environment to repeat actions 1 to 3 times.
-4. The (*ss.pad_action_space*) wrapper is necessary to make each agent's action space, otherwise we would need a seperate final action linear layer.
-5. The (*ss.pettingzoo_env_to_vec_env*) wrapper makes a vector environment where there is one vector representing each agent.
-6. The (*ss.concat_vec_envs*) wrapper concatenates all of the vector environments which will be passed to through our model.
+1. The ss.black_death wrapper is necessary to allow the environment to remove deceased agents which prevents unecessary calculations.
+2. The ss.agent_indicator wrapper adds four layers to our observation space since we have four types of agents. The 
+3. The ss.frame_skip wrapper allows the environment to repeat actions 1 to 3 times.
+4. The ss.pad_action_space wrapper is necessary to make each agent's action space, otherwise we would need a seperate final action linear layer.
+5. The ss.pettingzoo_env_to_vec_env wrapper makes a vector environment where there is one vector representing each agent.
+6. The ss.concat_vec_envs wrapper concatenates all of the vector environments which will be passed to through our model.
 
 ```python
 policy_kwargs = dict(features_extractor_class=CombinedArmsFeatures,
@@ -54,7 +53,7 @@ policy_kwargs = dict(features_extractor_class=CombinedArmsFeatures,
                                          pi=[128, 64])],
                      activation_fn = nn.ReLU,)
 
-model = PPO("MlpPolicy",
+model = PPO("CnnPolicy",
             env,
             verbose=1,
             gamma=0.95,
@@ -69,6 +68,8 @@ model = PPO("MlpPolicy",
             policy_kwargs=policy_kwargs,
             seed=42,)
 ```
+
+
 
 TODO:
 Finish this post
