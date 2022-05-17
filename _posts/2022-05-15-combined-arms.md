@@ -17,7 +17,7 @@ tags:
 
 Hello and welcome to my first blog post! Today I'm going to be working with the [PettingZoo](https://www.pettingzoo.ml/#) library and designing a model for the multi-agent environment [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms).
 
-I'm going to be using a few wrappers from the supersuit library to improve training speed and performance.
+I'm going to be using a variety wrappers from the supersuit library to improve training speed and performance.
 
 ```python
 import supersuit as ss
