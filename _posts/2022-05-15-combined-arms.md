@@ -8,14 +8,11 @@ tags:
   - Multi-Agent
   - RL
   - Stable Baselines3
-  - SB3
   - PPO
-  - Google Cloud Platform
-  - GCP
   - Supersuit
 ---
 
-Hello and welcome to my first blog post! Today I'm going to be working with the [PettingZoo](https://www.pettingzoo.ml/#) library and designing a model for the multi-agent environment [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms).
+Hello and welcome to my first blog post! Today I'm going to be working with the multi-agent [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms) environment on [PettingZoo](https://www.pettingzoo.ml/#) to build up a basis for implementing papers in the near future.
 
 I'm going to be using a variety wrappers from the supersuit library to improve training speed and performance.
 
@@ -39,10 +36,10 @@ env = ss.pettingzoo_env_to_vec_env_v1(env)
 env = ss.concat_vec_envs_v1(env, 16, num_cpus=8, base_class='stable_baselines3')
 ```
 
-1. The *black_death* wrapper is necessary to allow the environment to remove deceased agents which prevents unecessary calculations.
-2. The *agent_indicator* wrapper adds four layers to our observation space since we have four types of agents. The 
-3. The *frame_skip wrapper* allows the environment to repeat actions 1 to 3 times.
-4. The *pad_action_space* wrapper is necessary to make each agent's action space, otherwise we would need a seperate final action linear layer.
+1. The *black_death* wrapper allows the environment to remove deceased agents which prevents unecessary calculations.
+2. The *agent_indicator* wrapper adds one layer to the observation space for each type of agent. In this case there is a friendly ranged, friendly melee, enemy range, enemy melee.
+3. The *frame_skip wrapper* allows the environment to repeat actions, ignoring the state and summing the reward.
+4. The *pad_action_space* wrapper makes the each agent's action space the same.
 5. The *pettingzoo_env_to_vec_env* wrapper makes a vector environment where there is one vector representing each agent.
 6. The *concat_vec_envs* wrapper concatenates all of the vector environments which will be passed to through our model.
 
