@@ -1,5 +1,5 @@
 ---
-title: "PettingZoo and MAgent's Combined Arms"
+title: "Combined Arms"
 categories:
   - Paper Implementations
 tags:
