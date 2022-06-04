@@ -16,11 +16,11 @@ tags:
 Hello and welcome to my first blog post! This is the start of a series of blog posts where I'm going to be working with the multi-agent [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms) environment on [PettingZoo](https://www.pettingzoo.ml/#) and I'll keep adding parts, building it up, testing things out, and later implement a couple of papers I think are interesting.
 <br /><br /><br />
 
-# Environment Synopsis:
+## Environment Synopsis:
 
 2 teams composed of 45 melee units and 36 ranged units battle against each other. Melee units have a shorter range of both attack and movement, but have more health than their ranged coutnerparts; the agents also regenerate a small amount of their missing health each time step. For now I'll be using the default parameters with the exception of minimap_mode.
 
-# Imports:
+## Imports:
 ```python
 from typing import Callable, Dict, List, Optional, Tuple, Type, Union
 
@@ -41,7 +41,7 @@ import wandb
 from wandb.integration.sb3 import WandbCallback
 ```
 
-# Building the environment
+## Building the environment
 
 ```python
 def make_env(fname):
@@ -67,7 +67,7 @@ def make_env(fname):
 
 The 'VecMonitor' tracks the reward, length, time, etc. and saves it the the *filename* log file. 
 
-# Modeling
+## Modeling
 ```python
 model = PPO(
     "MlpPolicy",
