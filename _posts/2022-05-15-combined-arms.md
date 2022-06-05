@@ -14,16 +14,14 @@ tags:
 ---
 
 Hello and welcome to my first blog post! This is the start of a series of blog posts where I'm going to be working with the multi-agent [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms) environment on [PettingZoo](https://www.pettingzoo.ml/#) and I'll keep adding parts, building it up, testing things out, and later implement a couple of papers I think are interesting.
-<br /><br /><br />
+<br /><br />
 
 ## Environment Synopsis:
 
 2 teams composed of 45 melee units and 36 ranged units battle against each other. Melee units have a shorter range of both attack and movement, but have more health than their ranged coutnerparts; the agents also regenerate a small amount of their missing health each time step. For now I'll be using the default parameters with the exception of minimap_mode.
-
+<br /><br />
 ## Imports:
 ```python
-from typing import Callable, Dict, List, Optional, Tuple, Type, Union
-
 import numpy as np
 import os
 import time
@@ -40,7 +38,7 @@ from stable_baselines3.common.callbacks import BaseCallback
 import wandb
 from wandb.integration.sb3 import WandbCallback
 ```
-
+<br /><br />
 ## Building the environment
 
 ```python
@@ -66,21 +64,43 @@ def make_env(fname):
 * The 'concat_vec_envs' wrapper concatenates all of the vector environments which will be passed through the model.
 
 The 'VecMonitor' tracks the reward, length, time, etc. and saves it the the *filename* log file. 
+<br /><br />
 
+## WandB
+```python
+config = {
+    "learning_rate": 3e-4,
+    "total_timesteps": int(2e6),
+    "log": "/run/ppo1",
+}
+
+wandb.init(
+    config=config,
+    name="baseline",
+    project="combined_arms_v6",
+    sync_tensorboard=True,  # automatically upload SB3's tensorboard metrics to W&B
+    monitor_gym=True,       # automatically upload gym environements' videos
+    save_code=True,
+)
+```
+<br /><br />
 ## Modeling
 ```python
+env = make_env(config["log"])
+
 model = PPO(
     "MlpPolicy",
     env,
     verbose=1,
-    learning_rate=3e-4,
-    n_steps=2048,
-    batch_size=64,
+    learning_rate=config["learning_rate"],
+    tensorboard_log=config["log"],
     seed=42,
 )
+
+model.learn(total_timesteps=config.total_timesteps)
+wandb.finish()
 ```
 To establish the baseline I'll be using the stable baseline's default architecture.
-
 
 TODO:
 Finish this post
