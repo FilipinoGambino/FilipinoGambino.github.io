@@ -51,6 +51,8 @@ def make_env(fname):
     env = ss.pad_action_space_v0(env)
     env = ss.pettingzoo_env_to_vec_env_v1(env)
     env = ss.concat_vec_envs_v1(env, 4, num_cpus=2, base_class="gym")
+    env = gym.wrappers.RecordVideo(env, config.video_logs)
+    env = gym.wrappers.RecordEpisodeStatistics(env, deque_size=2048)
     env = VecMonitor(env, filename=fname)
     return env
 ```
@@ -60,18 +62,21 @@ def make_env(fname):
 * The 'frame_skip' wrapper allows the environment to repeat actions, ignoring the state and summing the reward.
 * The 'sticky_actions' wrapper gives a probability to repeat actions without ignoring the state. Probably use one or the other. I'll use frame_skip for now.
 * The 'pad_action_space' wrapper pads the melee units action space to match that of the ranged agents.
-* The 'pettingzoo_env_to_vec_env' wrapper makes a vector environment where there is one vector representing each agent. Since we have 162 agents `(45 + 36) * 2` we get 162 vectors.
+* The 'pettingzoo_env_to_vec_env' wrapper makes a vector environment where there is one vector representing each agent. Since we have 162 agents `(45 ranged + 36 melee) * 2 teams` we get 162 vectors.
 * The 'concat_vec_envs' wrapper concatenates all of the vector environments which will be passed through the model.
 
-The 'VecMonitor' tracks the reward, length, time, etc. and saves it the the *filename* log file. 
+### Other Wrappers
+* The 'VecMonitor' tracks the reward, length, time, etc. and saves it the the *filename* log file. 
+* Gym's 'RecordVideo' wrapper will saves videos
+* Gym's 'RecordEpisodeStatistics' wrapper records various information from the episode which for us is `162 vectors * 4 environments * 2048 steps` for a total of 1,327,104 total steps per episode.
 <br /><br />
 
 ## WandB
 ```python
 config = {
     "learning_rate": 3e-4,
-    "total_timesteps": int(2e6),
-    "log": "/run/ppo1",
+    "total_timesteps": int(2e7),
+    "log": "/run/ppo",
 }
 
 wandb.init(
@@ -100,7 +105,8 @@ model = PPO(
 model.learn(total_timesteps=config.total_timesteps)
 wandb.finish()
 ```
-To establish the baseline I'll be using the stable baseline's default architecture.
+To establish the baseline I'll be using the stable baseline's default architecture
+![baseline architecture](ngorichs/assets/images/baseline.jpg)
 
 TODO:
 Finish this post
