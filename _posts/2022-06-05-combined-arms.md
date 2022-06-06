@@ -106,7 +106,8 @@ model.learn(total_timesteps=config.total_timesteps)
 wandb.finish()
 ```
 To establish the baseline I'll be using the stable baseline's default architecture
-![baseline architecture](ngorichs/assets/images/baseline.jpg)
+![baseline architecture](https://filipinogambino.github.io/ngorichs/assets/images/baseline.JPG)
+
 
 TODO:
 Finish this post
