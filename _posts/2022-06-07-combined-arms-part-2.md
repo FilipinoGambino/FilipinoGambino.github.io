@@ -43,3 +43,5 @@ model = PPO(
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/cnn_emb_wandb.jpg">
 </p>
 
+<iframe src="[https://www.w3schools.com](https://wandb.ai/filipinogambino/Combined_Arms_v6/reports/Shared-panel-22-06-07-13-06-30--VmlldzoyMTI5OTk3)" title="WandB" style="border:none;height:1024px;width:100%"></iframe>
+
