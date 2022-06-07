@@ -22,8 +22,24 @@ Another architecture I would like to try is a pretty standard CNN with max pooli
 
 To replace the default architecture in stable-baseline3 we need to create a dictionary that will go into the `policy_kwargs` parameter
 ```python
-policy_kwargs = dict(features_extractor_class=CombinedArmsFeatures,
-                     net_arch=[256, dict(vf=[256, 128, 64],
-                                         pi=[128, 64])],
-                     activation_fn = nn.ReLU,)
+policy_kwargs = dict(
+    features_extractor_class=CombinedArmsFeatures,
+    net_arch=[256, dict(vf=[256, 128, 64],
+                        pi=[128, 64])],
+    activation_fn = nn.ReLU,)
+
+env = make_env()
+                     
+model = PPO(
+    "CnnPolicy",
+    env,
+    learning_rate=lr_scheduler(1e-8, 1e-4, 0.2),
+    verbose=1,
+    tensorboard_log=config['log'],
+    policy_kwargs=policy_kwargs,
+)
 ```
+<p>
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/cnn_emb_wandb.jpg">
+</p>
+
