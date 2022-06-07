@@ -37,7 +37,7 @@ from stable_baselines3.common.callbacks import BaseCallback
 import wandb
 from wandb.integration.sb3 import WandbCallback
 ```
-<br /><br />
+<br />
 
 ## Building the environment
 
@@ -151,5 +151,5 @@ wandb.finish()
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_wandb.jpg">
 </p>
 
-I'm not surprised it didn't perform all that well after ~20 million steps. It looks like it could go up a little more, but I think it's time to move on to a different model. In the [next post]("https://filipinogambino.github.io/ngorichs/_posts/22-06-07-combined-arms-part-2.md) I'll be building a convolutional neural network along with some embeddings.
+Unsurprisingly it didn't perform all that well after ~20 million steps. It looks like it could go up a little more with more training, but I think it's time to move on to a different architecture. In the [next post](https://filipinogambino.github.io/ngorichs/blog/combined-arms-part-2/) I'll be building a convolutional neural network along with some embeddings.
 
