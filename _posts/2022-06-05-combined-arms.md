@@ -105,8 +105,14 @@ model = PPO(
 model.learn(total_timesteps=config.total_timesteps)
 wandb.finish()
 ```
-To establish the baseline I'll be using the stable baseline's default architecture
-![baseline architecture](https://filipinogambino.github.io/ngorichs/assets/images/baseline.JPG)
+To establish the baseline I'll be using the stable baseline's default architecture which consists of seperate fully connected networks for the policy network and value network.
+<br />
+<p>
+  <em>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Policy Network &emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Value Network<br></em>
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_net.jpg" width="350" height="350">
+    &emsp;&emsp;&emsp;&emsp;
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_net.jpg" width="350" height="350">
+</p>
 
 
 TODO:
