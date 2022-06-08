@@ -34,14 +34,14 @@ tags:
 }
 </style>
 
-Hello and welcome to my first blog post! This is the start of a series of posts where I'm going to be working with the multi-agent [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms) environment on PettingZoo and I'll keep adding parts, building it up, testing things out, and later implement a couple of papers I think are interesting.
+Hello and welcome to my first blog post! This is the start of a series of posts where I'm going to be working with the multi-agent [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms) environment of the PettingZoo library and I'll keep adding parts, building it up, testing things out, and later implement a couple of papers I think are interesting.
 <br /><br />
 
 ## Purpose
-The purpose of this series is to showcase a project from start to finish to potential employers.
+The purpose of this series is to showcase a project to potential employers.
 
 ## The Environment
-There are 2 teams contained in a 45x45 map and each team is composed of 45 melee units and 36 ranged units. Melee units have a shorter range for both attack and movement than their ranged coutnerparts, but have more health. The agents also regenerate a small amount of their missing health with each time step since it takes multiple attacks to kill an agent.
+There are 2 teams contained in a 45x45 map and each team is composed of 45 melee units and 36 ranged units. Melee units have a shorter range for both attack and movement than their ranged coutnerparts, but have more health. The agents also slowly regenerate a small amount of their missing health since it takes multiple attacks to kill an agent.
 
 ## Imports
 ```python
@@ -57,7 +57,6 @@ from stable_baselines3.common.vec_env import VecMonitor
 import wandb
 from wandb.integration.sb3 import WandbCallback
 ```
-<br />
 
 ## Wrapping the Environment
 
@@ -77,14 +76,14 @@ def make_env(fname):
     return env
 ```
 
-* The 'black_death' wrapper removes deceased agents from the environment.
-* The 'agent_indicator' wrapper adds one layer to the observation space for each type of agent. In this case we have a friendly ranged, friendly melee, enemy ranged, enemy melee.
-* The 'frame_skip' wrapper allows the environment to repeat actions, ignoring the state and summing the reward.
-* The 'sticky_actions' wrapper gives a probability to repeat actions. I'll use this one over frame_skip for now for now.
-* The 'pad_action_space' wrapper pads the melee agents action space to match that of the ranged agents.
-* The 'pettingzoo_env_to_vec_env' wrapper makes a vector environment where there is one vector representing each agent. Since we have 162 agents `(45 ranged + 36 melee) * 2 teams` we get 162 vectors per environment.
-* The 'concat_vec_envs' wrapper concatenates the all of the vector environments which will be passed through the model.
-* The 'VecMonitor' tracks the reward, length, time, etc. and saves it the the *filename* log file. 
+* 'black_death' removes deceased agents from the environment.
+* 'agent_indicator' adds one layer to the observation space for each type of agent. In this case we have a friendly ranged, friendly melee, enemy ranged, enemy melee.
+* 'frame_skip' allows the environment to repeat actions, ignoring the state and summing the reward.
+* 'sticky_actions' gives a probability to repeat actions. I'll use this one over frame_skip for now for now.
+* 'pad_action_space' pads the melee agents action space to match that of the ranged agents.
+* 'pettingzoo_env_to_vec_env' makes a vector environment where there is one vector representing each agent. Since we have 162 agents `(45 ranged + 36 melee) * 2 teams` we get 162 vectors per environment.
+* 'concat_vec_envs' concatenates the all of the vector environments which will be passed through the model.
+* 'VecMonitor' tracks the reward, length, time, etc. and saves it the the *filename* log file. 
 * Gym's 'RecordVideo' wrapper will saves videos
 * Gym's 'RecordEpisodeStatistics' wrapper records various information from the episode which for us is `162 vectors * 4 environments * 2048 steps` for a total of 1,327,104 total steps per episode.
 <br /><br />
@@ -113,7 +112,7 @@ def lr_scheduler(min_lr: float, max_lr: float, sw_perc: float) -> Callable:
 
     return func
 ```
-Setting the minimum learning rate to 1e-8, the maximum to 1e-4, and the interval to 0.2 we get this:
+Setting the minimum learning rate to 1e-8, the maximum to 1e-4, and the interval to 0.2 we get the below learning rate schedule.
 
 <div class="center">
   <img src="https://filipinogambino.github.io/ngorichs/assets/images/lr_schedule_plot.jpg">
@@ -121,7 +120,7 @@ Setting the minimum learning rate to 1e-8, the maximum to 1e-4, and the interval
 
 ## Now we can build our model
 
-To establish the baseline I'll be using sb3's default architecture which consists of seperate fully connected layers for the policy network and value network.
+To establish the baseline I'll be using sb3's default architecture which consists of seperate fully connected layers for the policy network and value network. Melee agents only have 9 available actions (though we padded their actions spaces to match the ranged agents 25), so hopefully there are enough parameters here to learn which actions do nothing.
 <br />
 
 <div class="row">
@@ -134,7 +133,7 @@ To establish the baseline I'll be using sb3's default architecture which consist
 </div>
 
 <br />
-Make the environment and create the model.
+Now we write a quick config dictionary since we'll need to pass some of the parameters when we initialize wandb and we can assembly our model.
 
 ```python
 config = {
@@ -154,7 +153,7 @@ model = PPO(
     seed=42,
 )
 ```
-<br /><br />
+
 ## Modeling
 
 Then all we have left to do is initialize our wandb instance for logging and we can start training.
@@ -176,4 +175,4 @@ wandb.finish()
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_wandb.jpg">
 </p>
 
-Unsurprisingly it didn't perform all that well after ~20 million steps. It looks like it could go up a little more with more training, but I think it's time to move on to a different architecture. In the [next post](https://filipinogambino.github.io/ngorichs/blog/combined-arms-part-2/) I'll be building a convolutional neural network along with some embeddings.
+Unsurprisingly this baseline didn't perform all that well after ~20 million steps. It looks like it could go up a little more with more training, but I think it's time to move on to a different architecture. In the [next post](https://filipinogambino.github.io/ngorichs/blog/combined-arms-part-2/) I'll be building a convolutional neural network along with some embeddings to differentiate the different types of agents.
