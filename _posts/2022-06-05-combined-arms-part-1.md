@@ -34,17 +34,14 @@ tags:
 }
 </style>
 
-Hello and welcome to my first blog post! This is the start of a series of blog posts where I'm going to be working with the multi-agent [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms) environment on PettingZoo and I'll keep adding parts, building it up, testing things out, and later implement a couple of papers I think are interesting.
+Hello and welcome to my first blog post! This is the start of a series of posts where I'm going to be working with the multi-agent [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms) environment on PettingZoo and I'll keep adding parts, building it up, testing things out, and later implement a couple of papers I think are interesting.
 <br /><br />
 
 ## Purpose
 The purpose of this series is to showcase a project from start to finish to potential employers.
 
 ## The Environment
-Contained in a 45x45 map there are 2 teams composed of 45 melee units and 36 ranged units warring against each other. Melee units have a shorter range for both attack and movement than their ranged coutnerparts, but have more health. The agents also regenerate a small amount of their missing health with each time step since it takes multiple attacks to kill an agent.
-
-In this post I'll be using the default parameters for both the environment and the sb3 model with the a few exceptions like a learning rate scheduler.
-<br /><br />
+There are 2 teams contained in a 45x45 map and each team is composed of 45 melee units and 36 ranged units. Melee units have a shorter range for both attack and movement than their ranged coutnerparts, but have more health. The agents also regenerate a small amount of their missing health with each time step since it takes multiple attacks to kill an agent.
 
 ## Imports
 ```python
@@ -62,7 +59,7 @@ from wandb.integration.sb3 import WandbCallback
 ```
 <br />
 
-## Building the environment
+## Wrapping the Environment
 
 ```python
 def make_env(fname):
@@ -94,16 +91,14 @@ def make_env(fname):
 
 ## Learning Rate Scheduler
 ```python
-def lr_scheduler(min_lr: float, max_lr: float, sw_perc: float):
+def lr_scheduler(min_lr: float, max_lr: float, sw_perc: float) -> Callable:
     """
-    Learning rate schedule.
-
     :param min_lr: Minimum learning rate.
     :param max_lr: Maximum learning rate
     :param sw_perc: Progress interval for piecewise function
     :return: schedule that computes current learning rate depending on remaining progress
     """
-    def func(progress_remaining: float):
+    def func(progress_remaining: float) -> float:
         """
         Progress will decrease from 1 (beginning) to 0.
 
