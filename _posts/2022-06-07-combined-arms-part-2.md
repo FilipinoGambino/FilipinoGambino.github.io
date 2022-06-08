@@ -17,7 +17,7 @@ tags:
 # Convolutional Neural Network
 Another architecture I would like to try is a pretty standard CNN with max pooling, batch normalization, and dropout, but I also want to learn the differences between the four types of units so I'll add four of embeddings for that.
 <p>
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/cnn.JPG" width="350" height="750">
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/cnn.jpg">
 </p>
 
 To replace the default architecture in stable-baseline3 we need to create a dictionary that will go into the `policy_kwargs` parameter
