@@ -99,23 +99,23 @@ def lr_scheduler(min_lr: float, max_lr: float, sw_perc: float):
 ```
 Setting the minimum learning rate to 1e-8, the maximum to 1e-4, and the interval to 0.2 we get this:
 
-<center>
-  <p>
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/lr_schedule_plot.jpg">
-  </p>
-</center>
+<p>
+  <img src="https://filipinogambino.github.io/ngorichs/assets/images/lr_schedule_plot.jpg"  style="float: right">
+</p>
 
 ## Now we can build our model
 
 To establish the baseline I'll be using sb3's default architecture which consists of seperate fully connected layers for the policy network and value network.
 <br />
 
-<center>
-  <p>
-      <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_network.jpg" width="450" height="450" align="left">
-      <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_network.jpg" width="450" height="450" align="right">
-  </p>
-</center>
+<div class="row">
+  <div class="column">
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_network.jpg" alt="Policy Network" height="150" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_network.jpg" alt="Value Network" height="150" style="width:100%">
+  </div>
+</div>
 
 <br />
 Make the environment and create the model.
@@ -162,3 +162,18 @@ wandb.finish()
 
 Unsurprisingly it didn't perform all that well after ~20 million steps. It looks like it could go up a little more with more training, but I think it's time to move on to a different architecture. In the [next post](https://filipinogambino.github.io/ngorichs/blog/combined-arms-part-2/) I'll be building a convolutional neural network along with some embeddings.
 
+<style>
+.heading1 {
+    color: red;
+    font-weight:700;
+    font-size: 35px;
+}
+.heading2 {
+    color: blue;
+    font-weight:700;
+    font-size: 30px;
+}
+</style>
+
+# Markdown heading styles {#identifier .heading1}
+## Markdown heading styles {#identifier .heading2}
