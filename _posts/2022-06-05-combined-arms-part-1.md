@@ -171,6 +171,7 @@ wandb.init(
 model.learn(total_timesteps=config.total_timesteps)
 wandb.finish()
 ```
+## Results
 <p>
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_wandb.jpg">
 </p>
