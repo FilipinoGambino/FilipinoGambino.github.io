@@ -120,8 +120,8 @@ def lr_scheduler(min_lr: float, max_lr: float, sw_perc: float):
 ```
 Setting the minimum learning rate to 1e-8, the maximum to 1e-4, and the interval to 0.2 we get this:
 
-<div>
-  <img src="https://filipinogambino.github.io/ngorichs/assets/images/lr_schedule_plot.jpg"  class="center>
+<div class="center">
+  <img src="https://filipinogambino.github.io/ngorichs/assets/images/lr_schedule_plot.jpg">
 </div>
 
 ## Now we can build our model
