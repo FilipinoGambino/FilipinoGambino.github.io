@@ -175,5 +175,9 @@ Unsurprisingly it didn't perform all that well after ~20 million steps. It looks
 }
 </style>
 
-# Markdown heading styles {#identifier .heading1}
-## Markdown heading styles {#identifier .heading2}
+<h1 id="identifier" class="heading1">
+    Markdown h1 styles
+</h1>
+<h2 id="identifier" class="heading2">
+    Markdown h2 styles
+</h2>
