@@ -41,7 +41,7 @@ Hello and welcome to my first blog post! This is the start of a series of posts 
 The purpose of this series is to showcase a project to potential employers.
 
 ## The Environment
-There are 2 teams contained in a 45x45 map and each team is composed of 45 melee units and 36 ranged units. Melee units have a shorter range for both attack and movement than their ranged coutnerparts, but have more health. The agents also slowly regenerate a small amount of their missing health since it takes multiple attacks to kill an agent.
+There are 2 teams contained in a 45x45 map and each team is composed of 45 melee units and 36 ranged units. Melee units have a shorter range for both attack and movement than their ranged counterparts, but have more health. The agents also slowly regenerate a small amount of their missing health since it takes multiple attacks to kill an agent.
 
 ## Imports
 ```python
@@ -79,12 +79,12 @@ def make_env(fname):
 * 'black_death' removes deceased agents from the environment.
 * 'agent_indicator' adds one layer to the observation space for each type of agent. In this case we have a friendly ranged, friendly melee, enemy ranged, enemy melee.
 * 'frame_skip' allows the environment to repeat actions, ignoring the state and summing the reward.
-* 'sticky_actions' gives a probability to repeat actions. I'll use this one over frame_skip for now for now.
+* 'sticky_actions' gives a probability to repeat actions. I'll use this one over frame_skip for now.
 * 'pad_action_space' pads the melee agents action space to match that of the ranged agents.
 * 'pettingzoo_env_to_vec_env' makes a vector environment where there is one vector representing each agent. Since we have 162 agents `(45 ranged + 36 melee) * 2 teams` we get 162 vectors per environment.
-* 'concat_vec_envs' concatenates the all of the vector environments which will be passed through the model.
+* 'concat_vec_envs' concatenates all of the vector environments which will be passed through the model.
 * 'VecMonitor' tracks the reward, length, time, etc. and saves it the the *filename* log file. 
-* Gym's 'RecordVideo' wrapper will saves videos
+* Gym's 'RecordVideo' wrapper saves videos
 * Gym's 'RecordEpisodeStatistics' wrapper records various information from the episode which for us is `162 vectors * 4 environments * 2048 steps` for a total of 1,327,104 total steps per episode.
 <br /><br />
 
@@ -133,7 +133,7 @@ To establish the baseline I'll be using sb3's default architecture which consist
 </div>
 
 <br />
-Now we write a quick config dictionary since we'll need to pass some of the parameters when we initialize wandb and we can assembly our model.
+Now we write a quick config dictionary since we'll need to pass some of the parameters when we initialize wandb and we can assemble our model.
 
 ```python
 config = {
