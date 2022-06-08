@@ -13,6 +13,27 @@ tags:
   - WandB
 ---
 
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+} 
+ 
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
 Hello and welcome to my first blog post! This is the start of a series of blog posts where I'm going to be working with the multi-agent [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms) environment on PettingZoo and I'll keep adding parts, building it up, testing things out, and later implement a couple of papers I think are interesting.
 <br /><br />
 
@@ -99,9 +120,9 @@ def lr_scheduler(min_lr: float, max_lr: float, sw_perc: float):
 ```
 Setting the minimum learning rate to 1e-8, the maximum to 1e-4, and the interval to 0.2 we get this:
 
-<p>
-  <img src="https://filipinogambino.github.io/ngorichs/assets/images/lr_schedule_plot.jpg"  style="float: right">
-</p>
+<div>
+  <img src="https://filipinogambino.github.io/ngorichs/assets/images/lr_schedule_plot.jpg"  class="center>
+</div>
 
 ## Now we can build our model
 
@@ -110,10 +131,10 @@ To establish the baseline I'll be using sb3's default architecture which consist
 
 <div class="row">
   <div class="column">
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_network.jpg" alt="Policy Network" height="150" style="width:100%">
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_network.jpg" alt="Policy Network">
   </div>
   <div class="column">
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_network.jpg" alt="Value Network" height="150" style="width:100%">
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_network.jpg" alt="Value Network">
   </div>
 </div>
 
@@ -161,23 +182,3 @@ wandb.finish()
 </p>
 
 Unsurprisingly it didn't perform all that well after ~20 million steps. It looks like it could go up a little more with more training, but I think it's time to move on to a different architecture. In the [next post](https://filipinogambino.github.io/ngorichs/blog/combined-arms-part-2/) I'll be building a convolutional neural network along with some embeddings.
-
-<style>
-.heading1 {
-    color: red;
-    font-weight:700;
-    font-size: 35px;
-}
-.heading2 {
-    color: blue;
-    font-weight:700;
-    font-size: 30px;
-}
-</style>
-
-<h1 id="identifier" class="heading1">
-    Markdown h1 styles
-</h1>
-<h2 id="identifier" class="heading2">
-    Markdown h2 styles
-</h2>
