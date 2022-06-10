@@ -41,7 +41,7 @@ Hello and welcome to my first blog post! This is the start of a series of posts 
 The purpose of this series is to showcase a project to potential employers.
 
 ## The Environment
-There are 2 teams contained in a 45x45 map and each team is composed of 45 melee units and 36 ranged units. Melee units have a shorter range for both attack and movement than their ranged counterparts, but have more health. The agents also slowly regenerate a small amount of their missing health since it takes multiple attacks to kill an agent.
+There are 2 teams contained in a 45x45 map and each team is composed of 45 melee units and 36 ranged units. Melee units have a shorter range for both attack and movement than their ranged counterparts, but have more health. The units or agents also slowly regenerate a small amount of their missing health since it takes multiple attacks to kill an agent. Agents are rewarded for injurying/killing opposing agents and negatively rewarded for both injuring/killing friendly agents or dying.
 
 ## Imports
 ```python
