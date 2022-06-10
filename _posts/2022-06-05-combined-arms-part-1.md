@@ -1,13 +1,13 @@
 ---
-title: "Combined Arms Part 1"
+title: "Establishing a Baseline"
 categories:
-  - Blog
+  - Petting Zoo's Combined Arms MAgent Environment
 tags:
   - PettingZoo
   - Combined Arms
-  - Multi-Agent
+  - MAgent
   - RL
-  - Stable Baselines3
+  - SB3
   - PPO
   - Supersuit
   - WandB
