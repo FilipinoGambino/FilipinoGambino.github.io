@@ -1,7 +1,7 @@
 ---
 title: "I'm a genius"
 categories:
-  - Petting Zoo's Combined Arms MAgent Environment
+  - combined-arms
 tags:
   - PettingZoo
   - Combined Arms
