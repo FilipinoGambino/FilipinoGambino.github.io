@@ -259,17 +259,21 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
-# https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
+  
+jekyll-archives:
+  enabled: all
+  layouts:
+    year: archive/year
+    month: archive/month
+    day: archive/day
+    tag: archive/tag
+    category: archive/category
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tags/:name/'
+    category: '/category/:name/'
 
 
 # HTML Compression
