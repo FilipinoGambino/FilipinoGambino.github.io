@@ -1,7 +1,7 @@
 ---
-title: "Combined Arms Part 2"
+title: "I'm a genius"
 categories:
-  - Blog
+  - Petting Zoo's Combined Arms MAgent Environment
 tags:
   - PettingZoo
   - Combined Arms
