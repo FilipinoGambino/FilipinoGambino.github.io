@@ -1,15 +1,12 @@
 ---
 title: "Establishing a Baseline"
 categories:
-  - Petting Zoo's Combined Arms MAgent Environment
+  - combined_arms
 tags:
   - PettingZoo
-  - Combined Arms
-  - MAgent
   - RL
   - SB3
   - PPO
-  - Supersuit
   - WandB
 ---
 
