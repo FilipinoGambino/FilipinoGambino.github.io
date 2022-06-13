@@ -11,9 +11,9 @@ header:
     - label: "Download"
       url: "https://filipinogambino.github.io/ngorichs/"
   caption: "Photo credit: [**Me**](https://filipinogambino.github.io/ngorichs/)"
-excerpt: "Sphinx of black quartz, judge my vow."
+excerpt: ""
 intro: 
-  - excerpt: 'This is an intro excerpt'
+  - excerpt: 'My Projects'
 gallery:
   - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-1/
     image_path: assets/images/baseline_wandb.jpg
