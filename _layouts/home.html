@@ -13,7 +13,7 @@ layout: archive
 {% endif %}
 
 {% assign entries_layout = page.entries_layout | default: 'list' %}
-<h1>Archive of postss {{ page.type }} '{{ page.title }}'</h1>
+<h1>Archive of postss {{ page.type }} '{{ page }}'</h1>
 <h1>Archive of postss {{ page.type }} '{{ entries_layout }}'</h1>
 <div class="entries-{{ entries_layout }}">
   {% for post in posts %}
