@@ -29,4 +29,4 @@ gallery:
 
 {% include feature_row id="intro" type="center" %}
 
-{% include gallery caption="This is a sample gallery with **Markdown support**." %}
+{% include gallery %}
