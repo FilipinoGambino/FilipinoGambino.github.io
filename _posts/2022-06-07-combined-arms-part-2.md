@@ -4,12 +4,9 @@ categories:
   - combined_arms
 tags:
   - PettingZoo
-  - Combined Arms
-  - Multi-Agent
   - RL
   - Stable Baselines3
   - PPO
-  - Supersuit
   - WandB
 ---
 
