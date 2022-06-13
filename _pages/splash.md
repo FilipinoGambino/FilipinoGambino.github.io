@@ -15,15 +15,15 @@ excerpt: "Sphinx of black quartz, judge my vow."
 intro: 
   - excerpt: 'This is an intro excerpt'
 gallery:
-  - url: "https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-1.html"
+  - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-1.html
     image_path: assets/images/baseline_wandb.jpg
     alt: "placeholder image 1"
     title: "Image 1 title caption"
-  - url: "https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-2.html"
+  - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-2.html
     image_path: /assets/images/cnn.jpg
     alt: "placeholder image 2"
     title: "Image 2 title caption"
-  - url: "https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-3.html"
+  - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-3.html
     image_path: /assets/images/cnn_emb_wandb.jpg
     alt: "placeholder image 3"
     title: "Image 3 title caption"
