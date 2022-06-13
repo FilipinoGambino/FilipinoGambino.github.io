@@ -1,5 +1,5 @@
 ---
-title: "I'm an idiott"
+title: "I'm an idiot"
 categories:
   - combined_arms
 tags:
