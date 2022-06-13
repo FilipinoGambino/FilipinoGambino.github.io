@@ -1,5 +1,5 @@
 ---
-title: "Splash"
+title: "My Projects"
 layout: splash
 permalink: /splash/
 date: 2022-03-23T11:48:41-04:00
@@ -13,7 +13,7 @@ header:
   caption: "Photo credit: [**Me**](https://filipinogambino.github.io/ngorichs/)"
 excerpt: ""
 intro: 
-  - excerpt: 'My Projects'
+  - excerpt: ""
 gallery:
   - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-1/
     image_path: assets/images/baseline_wandb.jpg
