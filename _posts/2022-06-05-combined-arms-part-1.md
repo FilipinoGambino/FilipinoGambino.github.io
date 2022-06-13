@@ -1,5 +1,6 @@
 ---
 title: "I'm a geniuss"
+permalink: /:categories/:title:output_ext
 categories:
   - combined_arms
 tags:
