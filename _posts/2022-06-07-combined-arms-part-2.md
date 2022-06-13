@@ -1,7 +1,7 @@
 ---
-title: "I'm an idiot"
+title: "I'm an idiott"
 categories:
-  - combined-arms
+  - combined_arms
 tags:
   - PettingZoo
   - Combined Arms
