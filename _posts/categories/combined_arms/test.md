@@ -1,6 +1,6 @@
 
 ---
-title: "Establishing a Baseline"
+title: "A Test"
 categories:
   - Petting Zoo's Combined Arms MAgent Environment
 tags:
