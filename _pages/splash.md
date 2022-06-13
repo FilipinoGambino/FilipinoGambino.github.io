@@ -9,8 +9,6 @@ header:
   overlay_image: /assets/images/lr_schedule_plot.jpg
   caption: "Photo credit: [**Me**](https://filipinogambino.github.io/ngorichs/)"
 excerpt: "<br /><br /><br /><br /><br /><br /><br /><br />"
-intro: 
-  - excerpt: "My Projects"
 gallery:
   - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-1/
     image_path: assets/images/baseline_wandb.jpg
