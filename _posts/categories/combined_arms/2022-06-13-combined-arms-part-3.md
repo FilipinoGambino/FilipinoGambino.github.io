@@ -1,5 +1,5 @@
 ---
-title: "Nevermind, I think I got itt"
+title: "Nevermind, I think I got it"
 categories:
   - combined_arms
 tags:
