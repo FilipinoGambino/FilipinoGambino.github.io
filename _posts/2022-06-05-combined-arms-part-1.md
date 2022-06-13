@@ -1,7 +1,7 @@
 ---
-title: "I'm a genius"
+title: "I'm a geniuss"
 categories:
-  - combined-arms
+  - combined_arms
 tags:
   - PettingZoo
   - Combined Arms
