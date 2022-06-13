@@ -28,8 +28,6 @@ feature_row:
     title: "Placeholder 2"
     excerpt: "This is some sample content that goes here with **Markdown** formatting."
     url: "https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-2.html"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
   - image_path: /assets/images/cnn_emb_wandb.jpg
     title: "Placeholder 3"
     excerpt: "This is some sample content that goes here with **Markdown** formatting."
@@ -41,9 +39,3 @@ feature_row:
 {% include feature_row id="intro" type="center" %}
 
 {% include feature_row %}
-
-{% include feature_row id="feature_row2" type="left" %}
-
-{% include feature_row id="feature_row3" type="right" %}
-
-{% include feature_row id="feature_row4" type="center" %}
