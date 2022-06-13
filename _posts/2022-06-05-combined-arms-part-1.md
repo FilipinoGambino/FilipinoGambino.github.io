@@ -1,5 +1,5 @@
 ---
-title: "Establishing a Baseline"
+title: "I'm a genius"
 categories:
   - combined-arms
 tags:
