@@ -1,5 +1,5 @@
 ---
-title: "I'm a genius"
+title: "I'm an idiot"
 categories:
   - combined-arms
 tags:
