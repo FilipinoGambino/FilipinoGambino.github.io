@@ -261,19 +261,12 @@ tag_archive:
   path: /tags/
   
 jekyll-archives:
-  enabled: all
-  layouts:
-    year: archive/year
-    month: archive/month
-    day: archive/day
-    tag: archive/tag
-    category: archive/category
+  enabled: categories
+  layout: archive
+  layout: 
+    category: category-archive
   permalinks:
-    year: '/:year/'
-    month: '/:year/:month/'
-    day: '/:year/:month/:day/'
-    tag: '/tags/:name/'
-    category: '/category/:name/'
+    category: '/_posts/category/:name/'
 
 
 # HTML Compression
