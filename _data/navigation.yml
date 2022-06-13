@@ -4,7 +4,7 @@ main:
 #     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   - title: "About"
     url: /about/
-  - title: "Splash Test"
+  - title: "Splash"
     url: /splash/
   # - title: "Sample Posts"
   #   url: /year-archive/
