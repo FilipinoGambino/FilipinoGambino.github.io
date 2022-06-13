@@ -4,12 +4,9 @@ categories:
   - combined_arms
 tags:
   - PettingZoo
-  - Combined Arms
-  - MAgent
   - RL
   - SB3
   - PPO
-  - Supersuit
   - WandB
 ---
 
