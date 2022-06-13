@@ -254,7 +254,7 @@ whitelist:
 #  - <base_path>/my-awesome-category/index.html ~> path: /
 category_archive:
   type: liquid
-  path: /_posts/categories/:categories/
+  path: /categories/:categories/
 
 
 # HTML Compression
@@ -274,10 +274,10 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: false
       comments: # true
       share: true
-      related: true
+      related: false
   # _pages
   - scope:
       path: ""
