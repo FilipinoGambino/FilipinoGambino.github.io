@@ -13,7 +13,7 @@ header:
   caption: "Photo credit: [**Me**](https://filipinogambino.github.io/ngorichs/)"
 excerpt: "Sphinx of black quartz, judge my vow."
 intro: 
-  - excerpt: 'This is an intro excpert'
+  - excerpt: 'This is an intro excerpt'
 feature_row:
   - image_path: assets/images/baseline_wandb.jpg
     alt: "placeholder image 1"
