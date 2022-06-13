@@ -1,15 +1,12 @@
 ---
-title: "Nevermind, I think I got it"
+title: "Nevermind, I think I got itt"
 categories:
-  - combined-arms
+  - combined_arms
 tags:
   - PettingZoo
-  - Combined Arms
-  - Multi-Agent
   - RL
   - Stable Baselines3
   - PPO
-  - Supersuit
   - WandB
 ---
 
