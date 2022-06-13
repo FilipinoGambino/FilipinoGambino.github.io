@@ -12,11 +12,21 @@ layout: archive
   {% assign posts = site.posts %}
 {% endif %}
 
-{% assign entries_layout = page.entries_layout | default: 'list' %}
+<!-- {% assign entries_layout = page.entries_layout | default: 'list' %}
 <div class="entries-{{ entries_layout }}">
   {% for post in posts %}
     {% include archive-single.html type=entries_layout %}
   {% endfor %}
-</div>
+</div> -->
+<h1>Archive of posts from {{ page.date | date: "%B %-d, %Y" }}</h1>
+
+<ul class="posts">
+{% for post in page.posts %}
+  <li>
+    <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </li>
+{% endfor %}
+</ul>
 
 {% include paginator.html %}
