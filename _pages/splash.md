@@ -7,13 +7,10 @@ header:
   overlay_color: "#000"
   overlay_filter: "0.5"
   overlay_image: /assets/images/lr_schedule_plot.jpg
-  actions:
-    - label: "Download"
-      url: "https://filipinogambino.github.io/ngorichs/"
   caption: "Photo credit: [**Me**](https://filipinogambino.github.io/ngorichs/)"
 excerpt: ""
-intro: 
-  - excerpt: ""
+<!-- intro: 
+  - excerpt: "My Projects" -->
 gallery:
   - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-1/
     image_path: assets/images/baseline_wandb.jpg
