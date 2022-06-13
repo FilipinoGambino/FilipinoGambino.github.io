@@ -9,7 +9,7 @@ header:
   overlay_image: /assets/images/lr_schedule_plot.jpg
   actions:
     - label: "Download"
-      url: "[](https://filipinogambino.github.io/ngorichs/)"
+      url: "https://filipinogambino.github.io/ngorichs/"
   caption: "Photo credit: [**Me**](https://filipinogambino.github.io/ngorichs/)"
 excerpt: "Sphinx of black quartz, judge my vow."
 intro: 
@@ -19,7 +19,7 @@ feature_row:
     alt: "placeholder image 1"
     title: "Placeholder 1"
     excerpt: "This is some sample content that goes here with **Markdown** formatting."
-    url: "[](https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-1.html)"
+    url: "https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-1.html"
     btn_label: "Read More"
     btn_class: "btn--primary"
   - image_path: /assets/images/cnn.jpg
@@ -27,13 +27,13 @@ feature_row:
     alt: "placeholder image 2"
     title: "Placeholder 2"
     excerpt: "This is some sample content that goes here with **Markdown** formatting."
-    url: "[](https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-2.html)")"
+    url: "https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-2.html"
     btn_label: "Read More"
     btn_class: "btn--primary"
   - image_path: /assets/images/cnn_emb_wandb.jpg
     title: "Placeholder 3"
     excerpt: "This is some sample content that goes here with **Markdown** formatting."
-    url: "[](https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-3.html)"
+    url: "https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-3.html"
     btn_label: "Read More"
     btn_class: "btn--primary"
 ---
