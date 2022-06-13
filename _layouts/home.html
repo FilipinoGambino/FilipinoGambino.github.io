@@ -12,7 +12,7 @@ layout: archive
   {% assign posts = site.posts %}
 {% endif %}
 
-{% assign entries_layout = 'category' %}
+{% assign entries_layout = 'class' %}
 <div class="entries-{{ entries_layout }}">
   {% for post in posts %}
     {% include archive-single.html type=entries_layout %}
