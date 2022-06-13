@@ -13,18 +13,15 @@ gallery:
   - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-1/
     image_path: assets/images/baseline_wandb.jpg
     alt: "placeholder image 1"
-    title: "Image 1 title caption"
-    caption: "This is some text"
+    title: "This is some text"
   - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-2/
     image_path: /assets/images/cnn.jpg
     alt: "placeholder image 2"
-    title: "Image 2 title caption"
-    caption: "This is some more text"
+    title: "This is some more text"
   - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-3/
     image_path: /assets/images/cnn_emb_wandb.jpg
     alt: "placeholder image 3"
-    title: "Image 3 title caption"
-    caption: "These are not the droids you're looking for"
+    title: "These are not the droids you're looking for"
 ---
 
 {% include feature_row id="intro" type="center" %}
