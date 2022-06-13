@@ -8,17 +8,7 @@ header:
   overlay_filter: "0.5"
   overlay_image: /assets/images/lr_schedule_plot.jpg
   caption: "Photo credit: [**Me**](https://filipinogambino.github.io/ngorichs/)"
-excerpt: "
-
-
-
-
-
-
-
-
-
-"
+excerpt: ""
 intro: 
   - excerpt: "My Projects"
 gallery:
@@ -36,6 +26,6 @@ gallery:
     title: "Image 3 title caption"
 ---
 
-{% include feature_row id="intro" type="center" %}
+{% include feature_row id="intro" type="center" height=500px %}
 
 {% include gallery caption="This is a sample gallery with **Markdown support**." %}
