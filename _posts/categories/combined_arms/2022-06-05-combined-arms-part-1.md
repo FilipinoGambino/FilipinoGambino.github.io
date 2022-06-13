@@ -1,5 +1,5 @@
 ---
-title: "I'm a geniuss"
+title: "I'm a genius"
 permalink: /:categories/:title:output_ext
 categories:
   - combined_arms
