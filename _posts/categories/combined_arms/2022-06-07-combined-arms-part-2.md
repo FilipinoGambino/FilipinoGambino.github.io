@@ -1,5 +1,5 @@
 ---
-title: "Part 2"
+title: "CNN"
 permalink: /:categories/archive/part2/
 author_profile: false
 sidebar:
