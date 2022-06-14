@@ -1,6 +1,6 @@
 ---
 title: "Pheromones"
-permalink: /:categories/archive/part3/
+permalink: /:categories/archive/pheromones/
 author_profile: false
 sidebar:
   nav: "projects"
