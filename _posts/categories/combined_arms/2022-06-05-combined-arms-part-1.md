@@ -1,6 +1,9 @@
 ---
 title: "Part 1"
 permalink: /:categories/archive/part1/
+author_profile: false
+sidebar:
+  nav: "projects"
 categories:
   - combined_arms
 tags:
