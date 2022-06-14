@@ -1,5 +1,5 @@
 ---
-title: "CNN"
+title: "Convolutional Neural Network"
 permalink: /:categories/archive/part2/
 author_profile: false
 sidebar:
@@ -14,8 +14,6 @@ tags:
   - WandB
 ---
 
-
-# Convolutional Neural Network
 Another architecture I would like to try is a pretty standard CNN with max pooling, batch normalization, and dropout, but I also want to learn the differences between the four types of units so I'll add four of embeddings for that.
 <p>
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/cnn.jpg">
