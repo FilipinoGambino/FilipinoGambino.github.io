@@ -10,10 +10,23 @@ main:
   #   url: /collection-archive/
 #   - title: "Sitemap"
 #     url: /sitemap/
-combined_arms:
-  - title: "1. Baseline"
-    url: /archive/part1/
-  - title: "2. CNN"
-    url: /archive/part2/
-  - title: "3. Paper"
-    url: /archive/part3/
+projects:
+  - title: "Combined Arms"
+    url: /combined_arms/archive/
+    children:
+      - title: "1. Baseline"
+        url: /combined_arms/archive/part1/
+      - title: "2. CNN"
+        url: /combined_arms/archive/part2/
+      - title: "3. Paper"
+        url: /combined_arms/archive/part3/
+  - title: "SPY Bot"
+    url: /combined_arms/archive/
+    children:
+      - title: "1. Baseline"
+        url: /combined_arms/archive/part1/
+      - title: "2. CNN"
+        url: /combined_arms/archive/part2/
+      - title: "3. Paper"
+        url: /combined_arms/archive/part3/
+
