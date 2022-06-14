@@ -3,7 +3,7 @@ title: "Implementing a Paper"
 permalink: /:categories/archive/paper/
 author_profile: false
 sidebar:
-  nav: "projects"
+  nav: "spy_bot"
 categories:
   - spy_bot
 tags:

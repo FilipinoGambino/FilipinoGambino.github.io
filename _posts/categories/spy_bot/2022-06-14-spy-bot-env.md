@@ -3,7 +3,7 @@ title: "Building the Environment"
 permalink: /:categories/archive/env/
 author_profile: false
 sidebar:
-  nav: "projects"
+  nav: "spy_bot"
 categories:
   - spy_bot
 tags:

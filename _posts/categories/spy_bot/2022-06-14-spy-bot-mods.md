@@ -3,7 +3,7 @@ title: "Some Modifications"
 permalink: /:categories/archive/mods/
 author_profile: false
 sidebar:
-  nav: "projects"
+  nav: "spy_bot"
 categories:
   - spy_bot
 tags:

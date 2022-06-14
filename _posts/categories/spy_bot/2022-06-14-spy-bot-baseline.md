@@ -3,7 +3,7 @@ title: "Baseline"
 permalink: /:categories/archive/baseline/
 author_profile: false
 sidebar:
-  nav: "projects"
+  nav: "spy_bot"
 categories:
   - spy_bot
 tags:
