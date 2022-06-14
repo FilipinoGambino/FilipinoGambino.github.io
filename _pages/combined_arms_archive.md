@@ -5,4 +5,4 @@ permalink: /combined_arms/archive/
 taxonomy: combined_arms
 ---
 
-{% include posts-category.html %}
+<!-- {% include posts-category.html %} -->
