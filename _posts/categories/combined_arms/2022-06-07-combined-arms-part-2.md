@@ -1,7 +1,7 @@
 ---
 title: "I'm an idiot"
 categories:
-  - combined_arms
+  - combined arms
 tags:
   - PettingZoo
   - RL
