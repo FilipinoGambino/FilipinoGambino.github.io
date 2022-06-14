@@ -1,7 +1,8 @@
 ---
-title: "I'm an idiot"
+title: "Part 2"
+permalink: /:categories/part2/
 categories:
-  - combined arms
+  - combined_arms
 tags:
   - PettingZoo
   - RL
