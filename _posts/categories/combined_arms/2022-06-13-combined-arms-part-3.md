@@ -2,7 +2,7 @@
 title: "Part 3"
 permalink: /:categories/part3/
 categories:
-  - combined arms
+  - combined_arms
 tags:
   - PettingZoo
   - RL
