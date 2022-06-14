@@ -1,6 +1,6 @@
 ---
 title: "Baseline"
-permalink: /:categories/archive/part1/
+permalink: /:categories/archive/baseline/
 author_profile: false
 sidebar:
   nav: "projects"
