@@ -3,7 +3,7 @@ title: "Baseline"
 permalink: /:categories/archive/baseline/
 author_profile: false
 sidebar:
-  nav: "projects"
+  nav: "combined_arms"
 categories:
   - combined_arms
 tags:
