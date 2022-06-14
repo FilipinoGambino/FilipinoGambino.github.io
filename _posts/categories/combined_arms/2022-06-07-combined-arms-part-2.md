@@ -3,7 +3,7 @@ title: "Convolutional Neural Network"
 permalink: /:categories/archive/cnn/
 author_profile: false
 sidebar:
-  nav: "projects"
+  nav: "combined_arms"
 categories:
   - combined_arms
 tags:
