@@ -1,7 +1,7 @@
 ---
 title: "Nevermind, I think I got it"
 categories:
-  - combined_arms
+  - combined arms
 tags:
   - PettingZoo
   - RL
