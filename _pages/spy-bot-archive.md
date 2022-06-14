@@ -5,7 +5,7 @@ taxonomy: spy_bot
 classes: wide
 author_profile: false
 sidebar:
-  nav: "projects"
+  nav: "spy_bot"
 ---
 
 <style>
