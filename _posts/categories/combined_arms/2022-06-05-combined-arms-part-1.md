@@ -1,5 +1,5 @@
 ---
-title: "Part 1"
+title: "Baseline"
 permalink: /:categories/archive/part1/
 author_profile: false
 sidebar:
