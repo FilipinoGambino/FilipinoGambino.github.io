@@ -1,5 +1,6 @@
 ---
-title: "Nevermind, I think I got it"
+title: "Part 3"
+permalink: /:categories/part3/
 categories:
   - combined arms
 tags:
