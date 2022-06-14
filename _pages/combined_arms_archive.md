@@ -1,10 +1,11 @@
 ---
-layout: category
+layout: post
 entries_layout: list
 permalink: /combined_arms/archive/
 taxonomy: combined_arms
 toc: true
 toc_label: "Combined Arms Posts"
+toc_sticky: true
 ---
 
 # Baseline
