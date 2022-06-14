@@ -1,6 +1,5 @@
 ---
-title: "My Projects"
-layout: posts
+layout: category
+entries_layout: list
+taxonomy: combined arms
 ---
-
-{% include list-posts entries='3' offset='1' category='combined arms' %}
