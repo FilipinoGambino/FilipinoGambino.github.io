@@ -1,33 +1,29 @@
 ---
 title: "My Projects"
 layout: splash
+permalink: /splash/
+date: 2022-03-23T11:48:41-04:00
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
   overlay_image: /assets/images/lr_schedule_plot.jpg
   caption: "Photo credit: [**Me**](https://filipinogambino.github.io/ngorichs/)"
 excerpt: "<br /><br /><br /><br /><br /><br /><br /><br />"
-entries_layout: grid
+gallery:
+  - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-1/
+    image_path: assets/images/baseline_wandb.jpg
+    alt: "placeholder image 1"
+    title: "This is some text"
+  - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-2/
+    image_path: /assets/images/cnn.jpg
+    alt: "placeholder image 2"
+    title: "This is some more text"
+  - url: https://filipinogambino.github.io/ngorichs/combined_arms/combined-arms-part-3/
+    image_path: /assets/images/cnn_emb_wandb.jpg
+    alt: "placeholder image 3"
+    title: "These are not the droids you're looking for"
 ---
 
 {% include feature_row id="intro" type="center" %}
 
-<!-- {{ content }}
-
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-{% for i in (1..categories_max) reversed %}
-  {% for category in site.categories %}
-    {% if category[1].size == i %}
-      <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section">
-        <h2 class="archive__subtitle">{{ category[0] }}</h2>
-        <div class="entries-{{ entries_layout }}">
-          {% for post in category.last %}
-            {% include archive-single.html type=entries_layout %}
-          {% endfor %}
-        </div>
-        <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
-      </section>
-    {% endif %}
-  {% endfor %}
-{% endfor %}
- -->
+{% include gallery %}
