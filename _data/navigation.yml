@@ -3,7 +3,7 @@ main:
   - title: "About"
     url: /about/
 
-projects:
+combined_arms:
   - title: "Combined Arms"
     url: /combined_arms/archive/
     children:
@@ -13,6 +13,12 @@ projects:
         url: /combined_arms/archive/cnn/
       - title: "Part 3. Pheromones Paper"
         url: /combined_arms/archive/pheromones/
+  - title: "SPY Bot"
+    url: /spy_bot/archive/
+        
+spy_bot:
+  - title: "Combined Arms"
+    url: /combined_arms/archive/
   - title: "SPY Bot"
     url: /spy_bot/archive/
     children:
