@@ -1,7 +1,8 @@
 ---
-title: "I'm a genius"
+title: "Part 1"
+permalink: /:categories/part1/
 categories:
-  - combined arms
+  - combined_arms
 tags:
   - PettingZoo
   - RL
