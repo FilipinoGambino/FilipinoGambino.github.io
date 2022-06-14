@@ -21,7 +21,7 @@ projects:
       - title: "Part 1. Baseline"
         url: /spy_bot/archive/baseline/
       - title: "Part 2. CNN"
-        url: /spy_bot/archive/cnn/
+        url: /spy_bot/archive/model/
       - title: "Part 3. Paper"
         url: /spy_bot/archive/paper/
 
