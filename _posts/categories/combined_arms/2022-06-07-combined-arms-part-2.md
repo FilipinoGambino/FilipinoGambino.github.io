@@ -1,6 +1,6 @@
 ---
 title: "Convolutional Neural Network"
-permalink: /:categories/archive/part2/
+permalink: /:categories/archive/cnn/
 author_profile: false
 sidebar:
   nav: "projects"
