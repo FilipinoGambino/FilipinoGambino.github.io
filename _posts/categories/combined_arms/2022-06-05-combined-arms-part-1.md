@@ -35,15 +35,22 @@ tags:
 }
 </style>
 
+Firstly, we need to establish a baseline to compare our future models to; we need to know that whatever modifications we make are actually useful in improving the agents' decisions. Now, allowing the agents to take completely random actions would certainly be a baseline, but the teams aren't evenly distributed on the map and killing an agent requires several attacks in a few time steps. Instead we'll train a small, fully connected network which is the default model in SB3's policy algorithms like PPO. We'll also just use the default parameters for the algorithm with a few exceptions like using a learning rate scheduler instead of the default constant learning rate.
+
 ## Imports
+To get started, we'll do our imports.
+
 ```python
-import gym
-import supersuit as ss
+# Creating the environment
 from pettingzoo.magent import combined_arms_v6
 
+# Wrapping the environment
+import supersuit as ss
+from stable_baselines3.common.vec_env import VecVideoRecorder, VecMonitor
+
+# For the policy algorithm
 from stable_baselines3 import PPO
 from stable_baselines3.ppo import MlpPolicy
-from stable_baselines3.common.vec_env import VecMonitor
 
 # For logging
 import wandb
@@ -51,36 +58,37 @@ from wandb.integration.sb3 import WandbCallback
 ```
 
 ## Wrapping the Environment
+The environment is another place we'll be straying from the default values. This includes *minimap_mode* which adds 6 layers containing agent locations to the observation space and the *agent_indicator* wrapper with *type_only* set to "True" which adds a sort of one-hot encoding set of layers to the observation space for each of the 4 types of agents (friendly ranged, friendly melee, enemy ranged, enemy melee).
 
 ```python
-def make_env(fname):
-    env = combined_arms_v6.parallel_env(minimap_mode=True)
+def make_env():
+    env = combined_arms_v6.parallel_env(max_cycles=2000, minimap_mode=True)
+    env = ss.pad_action_space_v0(env)
     env = ss.black_death_v3(env)
     env = ss.agent_indicator_v0(env, type_only=True)
-    # env = ss.frame_skip_v0(env, (1,5))
+    # env = ss.frame_skip_v0(env, (1,3))
     env = ss.sticky_actions_v0(env, 0.3)
-    env = ss.pad_action_space_v0(env)
     env = ss.pettingzoo_env_to_vec_env_v1(env)
     env = ss.concat_vec_envs_v1(env, 4, num_cpus=2, base_class="gym")
-    env = gym.wrappers.RecordVideo(env, "videos/")
-    env = gym.wrappers.RecordEpisodeStatistics(env, deque_size=2048)
-    env = VecMonitor(env, filename=fname)
+    env = VecMonitor(env, filename=None)
+    env = VecVideoRecorder(env, "videos/", record_video_trigger=lambda x: x % 2048 == 0, video_length=500)
     return env
 ```
 
+* 'pad_action_space' pads the melee agents action space (Discrete 9) to match that of the ranged agents (Discrete 25).
 * 'black_death' removes deceased agents from the environment.
 * 'agent_indicator' adds one layer to the observation space for each type of agent. In this case we have a friendly ranged, friendly melee, enemy ranged, enemy melee.
 * 'frame_skip' allows the environment to repeat actions, ignoring the state and summing the reward.
 * 'sticky_actions' gives a probability to repeat actions. I'll use this one over frame_skip for now.
-* 'pad_action_space' pads the melee agents action space to match that of the ranged agents.
 * 'pettingzoo_env_to_vec_env' makes a vector environment where there is one vector representing each agent. Since we have 162 agents `(45 ranged + 36 melee) * 2 teams` we get 162 vectors per environment.
 * 'concat_vec_envs' concatenates all of the vector environments which will be passed through the model.
-* 'VecMonitor' tracks the reward, length, time, etc. and saves it the the *filename* log file. 
-* Gym's 'RecordVideo' wrapper saves videos
-* Gym's 'RecordEpisodeStatistics' wrapper records various information from the episode which for us is `162 vectors * 4 environments * 2048 steps` for a total of 1,327,104 total steps per episode.
+* SB3's 'VecMonitor' saves the reward, length, time, etc. to a log file
+* SB3's 'VecVideoRecorder' wrapper saves a video whenever the *record_video_trigger* condition is satisfied.
 <br /><br />
 
 ## Learning Rate Scheduler
+This is a learning rate scheduler that I found a good number of people using in Kaggle competitions.
+
 ```python
 def lr_scheduler(min_lr: float, max_lr: float, sw_perc: float) -> Callable:
     """
@@ -104,17 +112,16 @@ def lr_scheduler(min_lr: float, max_lr: float, sw_perc: float) -> Callable:
 
     return func
 ```
-Setting the minimum learning rate to 1e-8, the maximum to 1e-4, and the interval to 0.2 we get the below learning rate schedule.
+Setting the minimum learning rate to 1e-8, the maximum to 1e-4, and the interval to 0.2 we get a learning rate schedule that looks like this.
 
 <div class="center">
   <img src="https://filipinogambino.github.io/ngorichs/assets/images/lr_schedule_plot.jpg">
 </div>
 
 ## Now we can build our model
+PPO is an off-policy algorithm so here it consists of 2 seperate models, one for the policy network which yields an agent's action given an observation and another for the value network which yields the expected reward given that same observation. The default networks for SB3's PPO are fully connected layers. Further, the melee agents had their action spaces padded to match that of the ranged agents so we do not need a seperate policy-value pair to accomodate that. That might be something to address in a later post by using embeddings or a transformer to differentiate the types of agents.
 
-To establish the baseline I'll be using sb3's default architecture which consists of seperate fully connected layers for the policy network and value network. Melee agents only have 9 available actions (though we padded their actions spaces to match the ranged agents 25), so hopefully there are enough parameters here to learn which actions do nothing.
 <br />
-
 <div class="row">
   <div class="column">
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_network.jpg" alt="Policy Network">
@@ -123,9 +130,9 @@ To establish the baseline I'll be using sb3's default architecture which consist
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_network.jpg" alt="Value Network">
   </div>
 </div>
-
 <br />
-Now we write a quick config dictionary since we'll need to pass some of the parameters when we initialize wandb and we can assemble our model.
+
+Now we write a quick config dictionary since we'll need to pass some of the parameters when we initialize wandb and then we can assemble our model.
 
 ```python
 config = {
@@ -147,13 +154,12 @@ model = PPO(
 ```
 
 ## Modeling
-
 Then all we have left to do is initialize our wandb instance for logging and we can start training.
 
 ```python
 wandb.init(
     config=config,
-    name="baseline",
+    name="baseline_ppo",
     project="combined_arms_v6",
     sync_tensorboard=True,  # automatically upload SB3's tensorboard metrics to W&B
     monitor_gym=True,       # automatically upload gym environements' videos
