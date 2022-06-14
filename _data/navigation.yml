@@ -19,7 +19,7 @@ combined_arms:
 spy_bot:
   - title: "Combined Arms"
     url: /combined_arms/archive/
-  - title: "SPY Bot"
+  - title: "Trading Bot"
     url: /spy_bot/archive/
     children:
       - title: "Part 1. Building the Environment"
