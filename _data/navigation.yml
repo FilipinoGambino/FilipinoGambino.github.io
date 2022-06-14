@@ -14,19 +14,19 @@ projects:
   - title: "Combined Arms"
     url: /combined_arms/archive/
     children:
-      - title: "1. Baseline"
+      - title: "Part 1. Baseline"
         url: /combined_arms/archive/part1/
-      - title: "2. CNN"
+      - title: "Part 2. CNN"
         url: /combined_arms/archive/part2/
-      - title: "3. Paper"
+      - title: "Part 3. Paper"
         url: /combined_arms/archive/part3/
   - title: "SPY Bot"
     url: /combined_arms/archive/
     children:
-      - title: "1. Baseline"
+      - title: "Part 1. Baseline"
         url: /combined_arms/archive/part1/
-      - title: "2. CNN"
+      - title: "Part 2. CNN"
         url: /combined_arms/archive/part2/
-      - title: "3. Paper"
+      - title: "Part 3. Paper"
         url: /combined_arms/archive/part3/
 
