@@ -14,7 +14,6 @@ tags:
   - WandB
 ---
 
-
 # Convolutional Neural Network
 Another architecture I would like to try is a pretty standard CNN with max pooling, batch normalization, and dropout, but I also want to learn the differences between the four types of units so I'll add four of embeddings for that.
 <p>
