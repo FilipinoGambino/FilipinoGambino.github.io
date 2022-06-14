@@ -18,10 +18,10 @@ projects:
     children:
       - title: "Part 1. Building the Environment"
         url: /spy_bot/archive/env/
-      - title: "Part 1. Baseline"
+      - title: "Part 2. Baseline"
         url: /spy_bot/archive/baseline/
-      - title: "Part 2. CNN"
+      - title: "Part 3. Some Modifications"
         url: /spy_bot/archive/mods/
-      - title: "Part 3. Paper"
+      - title: "Part 4. Paper"
         url: /spy_bot/archive/paper/
 
