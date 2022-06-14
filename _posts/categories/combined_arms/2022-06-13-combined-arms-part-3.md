@@ -1,6 +1,6 @@
 ---
 title: "Part 3"
-permalink: /:categories/part3/
+permalink: /:categories/archive/part3/
 categories:
   - combined_arms
 tags:
