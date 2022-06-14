@@ -1,5 +1,5 @@
 ---
-title: "Part 3"
+title: "Pheromones"
 permalink: /:categories/archive/part3/
 author_profile: false
 sidebar:
