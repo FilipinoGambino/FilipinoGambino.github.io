@@ -42,5 +42,5 @@ model = PPO(
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/cnn_emb_wandb.jpg">
 </p>
 
-<iframe src="https://wandb.ai/filipinogambino/Combined_Arms_v6/reports/Shared-panel-22-06-07-13-06-30--VmlldzoyMTI5OTk3" title="WandB" style="border:none;height:512px;width:100%"></iframe>
+<iframe src="https://wandb.ai/filipinogambino/Combined_Arms_v6/reports/Shared-panel-22-06-07-13-06-30--VmlldzoyMTI5OTk3?accessToken=ixun392nlb797wozfsvf0osqfk3ysopp3qcobodbo8cejfp00x6bnre78k4qjxqq" title="WandB" style="border:none;height:512px;width:100%"></iframe>
 
