@@ -38,7 +38,7 @@ Hello and welcome to my first blog post! This is the start of a series of posts 
 The purpose of this series is to showcase a project to potential employers.
 
 ## The Environment
-There are 2 teams contained in a 45x45 map and each team is composed of 45 melee units (red and green) and 36 ranged units (blue and black). Melee units have a shorter range for both attack and movement than their ranged counterparts, but have more health. The units or agents also slowly regenerate a small amount of their missing health since it takes multiple attacks to kill an agent. Agents are rewarded for injurying/killing opposing agents and negatively rewarded for both injuring/killing friendly agents or dying.
+There are 2 teams contained in a 45x45 map and each team is composed of 45 melee agents (red and green) and 36 ranged agents (blue and black). Melee agents have a shorter range for both attack and movement than their ranged counterparts, but they have more health. The agents also slowly regenerate a small amount of their missing health since it takes multiple attacks to kill an agent. Agents are rewarded for attacking or killing opposing agents (0.2 and 5 respectively) and negatively rewarded for attacking friendly agents or dying (-0.1 for both). Lastly, there's a small negative reward every step of -0.005 so that the agents don't learn to do nothing or just wander around. Last team standing, wins.
 
 <div class="center">
   <table>
