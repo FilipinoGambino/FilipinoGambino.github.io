@@ -9,9 +9,9 @@ sidebar:
 ---
 
 <style>
-.centertext {text-align: center;}
+.centerText {text-align: center;}
 
-.centertable {
+.centerTable {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -47,7 +47,7 @@ The purpose of this series is to showcase a project to potential employers.
 ## The Environment
 There are 2 teams contained in a 45x45 map and each team is composed of 45 melee agents (red and green) and 36 ranged agents (blue and black). Melee agents have a shorter range for both attack and movement than their ranged counterparts, but they have more health. The agents also slowly regenerate a small amount of their missing health so cooperation in eliminating the enemy team is highly encouraged. Agents are rewarded for attacking or killing opposing agents (0.2 and 5 reward respectively) and negatively rewarded for attacking friendly agents or dying (-0.1 reward for both). Lastly, there's a small negative reward every step of -0.005 so that the agents don't learn to do nothing or just wander around. Last team standing, wins.
 
-<div class="centertable">
+<div class="centerTable">
   <table>
     <tr>
       <th></th>
@@ -79,15 +79,14 @@ There are 2 teams contained in a 45x45 map and each team is composed of 45 melee
   </table>
 </div>
 
-<div class="center">
-  <div class="row">
-    <div class="column">
-      <div class="centertext">Starting Positions</div>
-      <img src="https://filipinogambino.github.io/ngorichs/assets/images/combined_arms_v6_opening.png" alt="Starting Position">
-    </div>
-    <div class="column">
-      <div class="centertext">Agents in Action</div>
-      <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_untrained.gif" alt="Agents in Action">
-    </div>
+<div class="row">
+  <div class="column">
+    <div class="centerText">Starting Positions</div>
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/combined_arms_v6_opening.png" alt="Starting Position">
+  </div>
+  <div class="column">
+    <div class="centerText">Agents in Action</div>
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/combined_arms_v6_opening.png" alt="Agents in Action">
   </div>
 </div>
+<!-- baseline_untrained.gif -->
