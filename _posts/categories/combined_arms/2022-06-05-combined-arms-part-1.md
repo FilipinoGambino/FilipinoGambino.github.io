@@ -184,7 +184,7 @@ model.learn(total_timesteps=config["total_timesteps"])
 wandb.finish()
 ```
 ## Results
-Let's take a look at a few of the videos at some of the interesting points.
+Let's take a look at a few of the videos at some of the interesting points like steps 0, 12, 24, and 30.
 <div class="row">
   <div class="column">
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/W&B Chart baseline episode mean len.png" alt="Episode mean length">
@@ -202,7 +202,7 @@ First step 0, just to take a look at the initial parameters. Interestingly, the 
   </p>
 </div>
 
-Step 12 where the episode length is really decreasing meaning one team is getting eliminated faster. Now the ranged units are all going to one side. There also seems to be a lot of friendly fire.
+Step 12 where the episode length is really decreasing meaning one team is getting eliminated faster. Now the ranged units have also started clumping on one wall. There also seems to be a lot of friendly fire.
 <div class="center">
   <p>
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_12.gif">
