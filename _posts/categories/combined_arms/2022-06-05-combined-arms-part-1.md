@@ -70,7 +70,8 @@ The environment is another place we'll be straying from the default values. This
 ```python
 def make_env():
   """
-  :return: a number of wrapped, parallel, combined arms environments ready for logging to Weights and Biases
+  :return: a number of wrapped, parallel, combined arms environments ready for logging to 
+  Weights and Biases
   """
     env = combined_arms_v6.parallel_env(max_cycles=2000, minimap_mode=True)
     env = ss.pad_action_space_v0(env)
