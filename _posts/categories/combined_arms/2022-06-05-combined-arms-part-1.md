@@ -37,7 +37,7 @@ tags:
 }
 </style>
 
-Firstly, we need to establish a baseline to compare our future models to; we need to know that whatever modifications we make are actually useful in improving the agents' decisions. Now, allowing the agents to take completely random actions would certainly be a baseline, but the teams aren't evenly distributed on the map and killing an agent requires several attacks in a few time steps. Instead we'll train a small, fully connected network which is the default model in SB3's policy algorithms like PPO. We'll also just use the default parameters for the algorithm with a few exceptions like using a learning rate scheduler instead of the default constant learning rate.
+Firstly, we need to establish a baseline to compare our future models to; we need to know that whatever modifications we make are actually useful in improving the agents' decisions. Now, allowing the agents to take completely random actions would certainly be a baseline, but the teams aren't evenly distributed on the map and killing an agent requires several attacks in a few time steps. This would require at least a little coordination. Instead we'll train a small, fully connected network which is the default model in SB3's policy algorithms like PPO. We'll also just use the default parameters for the algorithm with a few exceptions like using a learning rate scheduler instead of the default constant learning rate.
 
 ## Imports
 To get started, we'll do our imports. Note the WandB API key to connect to your WandB account.
