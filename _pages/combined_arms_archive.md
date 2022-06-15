@@ -19,7 +19,7 @@ sidebar:
 } 
  
 .column {
-  float: left;
+  float: center;
   width: 50%;
   padding: 5px;
 }
@@ -78,7 +78,7 @@ There are 2 teams contained in a 45x45 map and each team is composed of 45 melee
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/combined_arms_v6_opening.png" alt="Starting Position">
   </div>
   <div class="column">
-    <div class="centertext">First Step</div>
+    <div class="centertext">Agents in Action</div>
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_untrained.gif" alt="Agents in Action">
   </div>
 </div>
