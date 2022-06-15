@@ -183,6 +183,15 @@ wandb.finish()
 ```
 ## Results
 Let's take a look at a few of the videos at some of the interesting points.
+<div class="row">
+  <div class="column">
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/W&B Chart baseline episode mean len.png" alt="Episode mean length" height=400 >
+  </div>
+  <div class="column">
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/W&B Chart baseline episode mean rew.png" alt="Episode mean reward" height=400 >
+  </div>
+</div>
+<br />
 
 First step 0, just to take a look at the initial parameters.
 <video autoplay>
