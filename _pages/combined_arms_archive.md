@@ -9,6 +9,8 @@ sidebar:
 ---
 
 <style>
+.centertext {text-align: center;}
+
 .center {
   display: block;
   margin-left: auto;
@@ -36,37 +38,39 @@ Hello and welcome to my first blog post! This is the start of a series of posts 
 The purpose of this series is to showcase a project to potential employers.
 
 ## The Environment
-There are 2 teams contained in a 45x45 map and each team is composed of 45 melee units (red and blue) and 36 ranged units (green and black). Melee units have a shorter range for both attack and movement than their ranged counterparts, but have more health. The units or agents also slowly regenerate a small amount of their missing health since it takes multiple attacks to kill an agent. Agents are rewarded for injurying/killing opposing agents and negatively rewarded for both injuring/killing friendly agents or dying.
+There are 2 teams contained in a 45x45 map and each team is composed of 45 melee units (red and green) and 36 ranged units (blue and black). Melee units have a shorter range for both attack and movement than their ranged counterparts, but have more health. The units or agents also slowly regenerate a small amount of their missing health since it takes multiple attacks to kill an agent. Agents are rewarded for injurying/killing opposing agents and negatively rewarded for both injuring/killing friendly agents or dying.
 
-<table>
-  <tr>
-    <th></th>
-    <th>Health</th>
-    <th>Damage</th>
-    <th>View Range</th>
-    <th>Attack Range</th>
-    <th>Move Speed</th>
-    <th>Health Regen</th>
-  </tr>
-  <tr>
-    <td>Melee</td>
-    <td>10</td>
-    <td>2</td>
-    <td>6</td>
-    <td>1</td>
-    <td>1</td>
-    <td>0.1</td>
-  </tr>
-  <tr>
-    <td>Ranged</td>
-    <td>3</td>
-    <td>2</td>
-    <td>6</td>
-    <td>2</td>
-    <td>2</td>
-    <td>0.1</td>
-  </tr>
-</table>
+<div class="center">
+  <table>
+    <tr>
+      <th></th>
+      <th>Health</th>
+      <th>Damage</th>
+      <th>View Range</th>
+      <th>Attack Range</th>
+      <th>Move Speed</th>
+      <th>Health Regen</th>
+    </tr>
+    <tr>
+      <td>Melee</td>
+      <div class="centertext"><td>10</td></div>
+      <div class="centertext"><td>2</td></div>
+      <div class="centertext"><td>6</td></div>
+      <div class="centertext"><td>1</td></div>
+      <div class="centertext"><td>1</td></div>
+      <div class="centertext"><td>0.1</td></div>
+    </tr>
+    <tr>
+      <td>Ranged</td>
+      <div class="centertext"><td>3</td></div>
+      <div class="centertext"><td>2</td></div>
+      <div class="centertext"><td>6</td></div>
+      <div class="centertext"><td>2</td></div>
+      <div class="centertext"><td>2</td></div>
+      <div class="centertext"><td>0.1</td></div>
+    </tr>
+  </table>
+</div>
 
 <div class="row">
   <div class="column">
