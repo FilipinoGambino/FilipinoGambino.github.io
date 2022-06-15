@@ -15,6 +15,13 @@ tags:
 ---
 
 <style>
+.centertext {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+} 
+
 .center {
   display: block;
   margin-left: auto;
@@ -214,9 +221,13 @@ Let's take a look at a few of the videos at some of the interesting points.
   </p>
 </div>
 
-<div class="center">
+<div class="centertext">
   <p>
     Step 30 where the reward is highest.
+  </p>
+</div>
+<div class="center">
+  <p>
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_30.gif">
   </p>
 </div>
