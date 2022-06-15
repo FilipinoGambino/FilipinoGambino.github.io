@@ -15,7 +15,7 @@ sidebar:
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 80%;
 } 
  
 .column {
@@ -53,21 +53,21 @@ There are 2 teams contained in a 45x45 map and each team is composed of 45 melee
     </tr>
     <tr>
       <td>Melee</td>
-      <div class="centertext"><td>10</td></div>
-      <div class="centertext"><td>2</td></div>
-      <div class="centertext"><td>6</td></div>
-      <div class="centertext"><td>1</td></div>
-      <div class="centertext"><td>1</td></div>
-      <div class="centertext"><td>0.1</td></div>
+      <td style="text-align:center">10</td>
+      <td style="text-align:center">2</td>
+      <td style="text-align:center">6</td>
+      <td style="text-align:center">1</td>
+      <td style="text-align:center">1</td>
+      <td style="text-align:center">0.1</td>
     </tr>
     <tr>
       <td>Ranged</td>
-      <div class="centertext"><td>3</td></div>
-      <div class="centertext"><td>2</td></div>
-      <div class="centertext"><td>6</td></div>
-      <div class="centertext"><td>2</td></div>
-      <div class="centertext"><td>2</td></div>
-      <div class="centertext"><td>0.1</td></div>
+      <td style="text-align:center">3</td>
+      <td style="text-align:center">2</td>
+      <td style="text-align:center">6</td>
+      <td style="text-align:center">2</td>
+      <td style="text-align:center">2</td>
+      <td style="text-align:center">0.1</td>
     </tr>
   </table>
 </div>
