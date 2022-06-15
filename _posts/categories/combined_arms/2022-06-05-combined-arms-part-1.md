@@ -15,12 +15,7 @@ tags:
 ---
 
 <style>
-.centertext {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-} 
+.centertext {text-align: center;}
 
 .center {
   display: block;
