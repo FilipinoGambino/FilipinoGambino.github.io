@@ -1,3 +1,3 @@
-# [Nick Gorichs Blog](https://filipinogambino.github.io/)
+# [Nick Gorichs Blog](https://filipinogambino.github.io/ngorichs/)
 
-This is a readme
+Welcome to my blog!
