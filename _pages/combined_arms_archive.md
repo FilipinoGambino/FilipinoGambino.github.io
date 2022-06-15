@@ -15,7 +15,7 @@ sidebar:
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 100%;
 } 
  
 .column {
@@ -48,7 +48,7 @@ There are 2 teams contained in a 45x45 map and each team is composed of 45 melee
       <th>Damage</th>
       <th>View Range</th>
       <th>Attack Range</th>
-      <th>Move Speed</th>
+      <th>Move Range</th>
       <th>Health Regen</th>
     </tr>
     <tr>
