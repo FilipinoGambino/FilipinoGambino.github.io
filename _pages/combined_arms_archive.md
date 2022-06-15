@@ -19,11 +19,11 @@ sidebar:
 } 
 
 .center {
-  float: center;
   display: block;
   margin-left: auto;
   margin-right: auto;
-} 
+  width: 50%;
+}
  
 .column {
   float: left;
@@ -79,7 +79,5 @@ There are 2 teams contained in a 45x45 map and each team is composed of 45 melee
   </table>
 </div>
 
-<div class="center">
-  <div class="centerText">Agents in Action</div>
-  <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_untrained.gif" alt="Agents in Action">
-</div>
+<p style="text-align:center">Agents in Action</p>
+<img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_untrained.gif" alt="Agents in Action" class="center">
