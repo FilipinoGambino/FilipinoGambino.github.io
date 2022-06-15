@@ -194,24 +194,32 @@ Let's take a look at a few of the videos at some of the interesting points.
 <br />
 
 First step 0, just to take a look at the initial parameters.
-<video autoplay>
-  <source src="https://filipinogambino.github.io/ngorichs/assets/videos/baseline_step_0.mp4" type="video/mp4">
-</video>
+<div class="center">
+  <video autoplay>
+    <source src="https://filipinogambino.github.io/ngorichs/assets/videos/baseline_step_0.mp4" type="video/mp4">
+  </video>
+</div>
 
 Step 12 when the episode length is really decreasing meaning one team is getting eliminated faster.
-<video autoplay>
-  <source src="https://filipinogambino.github.io/ngorichs/assets/videos/baseline_step_12.mp4" type="video/mp4">
-</video>
+<div class="center">
+  <video autoplay>
+    <source src="https://filipinogambino.github.io/ngorichs/assets/videos/baseline_step_12.mp4" type="video/mp4">
+  </video>
+</div>
 
 Step 24 where reward is still increasing, but the episode length has a spike.
-<video autoplay>
-  <source src="https://filipinogambino.github.io/ngorichs/assets/videos/baseline_step_24.mp4" type="video/mp4">
-</video>
+<div class="center">
+  <video autoplay>
+    <source src="https://filipinogambino.github.io/ngorichs/assets/videos/baseline_step_24.mp4" type="video/mp4">
+  </video>
+</div>
 
 Step 30 where the reward is highest.
-<video autoplay>
-  <source src="https://filipinogambino.github.io/ngorichs/assets/videos/baseline_step_30.mp4" type="video/mp4">
-</video>
+<div class="center">
+  <video autoplay>
+    <source src="https://filipinogambino.github.io/ngorichs/assets/videos/baseline_step_30.mp4" type="video/mp4">
+  </video>
+</div>
 
 <p>
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_wandb.jpg">
