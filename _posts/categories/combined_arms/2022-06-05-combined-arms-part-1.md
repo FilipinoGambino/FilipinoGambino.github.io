@@ -193,36 +193,36 @@ Let's take a look at a few of the videos at some of the interesting points.
 </div>
 <br />
 
-First step 0, just to take a look at the initial parameters.
 <div class="center">
   <p>
-      <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_0_new.gif">
+    First step 0, just to take a look at the initial parameters.
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_0.gif">
   </p>
 </div>
 
-Step 12 when the episode length is really decreasing meaning one team is getting eliminated faster.
 <div class="center">
   <p>
-      <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_12.gif">
+    Step 12 when the episode length is really decreasing meaning one team is getting eliminated faster.
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_12.gif">
   </p>
 </div>
 
-Step 24 where reward is still increasing, but the episode length has a spike.
 <div class="center">
   <p>
-      <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_24.gif">
+    Step 24 where reward is still increasing, but the episode length has a spike.
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_24.gif">
   </p>
 </div>
 
-Step 30 where the reward is highest.
 <div class="center">
   <p>
-      <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_30.gif">
+    Step 30 where the reward is highest.
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_30.gif">
   </p>
 </div>
 
 <p>
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_wandb.jpg">
+  <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_wandb.jpg">
 </p>
 
 Unsurprisingly this baseline didn't perform all that well after ~20 million steps. It looks like it could go up a little more with more training, but I think it's time to move on to a different architecture.
