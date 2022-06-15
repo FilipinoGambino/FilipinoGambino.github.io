@@ -195,39 +195,36 @@ Let's take a look at a few of the videos at some of the interesting points.
 </div>
 <br />
 
+First step 0, just to take a look at the initial parameters. Interestingly, the melee units immediately head towards the top of the environment. I would assume this has something to do with the action space padding.
 <div class="center">
   <p>
-    First step 0, just to take a look at the initial parameters.
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_0.gif">
   </p>
 </div>
 
+Step 12 where the episode length is really decreasing meaning one team is getting eliminated faster. Now the ranged units are all going to one side. There also seems to be a lot of friendly fire.
 <div class="center">
   <p>
-    Step 12 when the episode length is really decreasing meaning one team is getting eliminated faster.
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_12.gif">
   </p>
 </div>
 
+Step 24 where reward is still increasing, but the episode length has a spike. Still some friendly fire and some agents are attacking out of bounds. There are also quite a few agents just wandering around or stuck behind their allies.
 <div class="center">
   <p>
-    Step 24 where reward is still increasing, but the episode length has a spike.
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_24.gif">
   </p>
 </div>
 
-<div class="centertext">
-  <p>
-    Step 30 where the reward is highest.
-  </p>
-</div>
+Step 30 where the reward is highest. There do seem to be less agents stuck between the boundary and their allies which is great, but their movements towards the enemy could certainly be faster and more efficient. I think the main thing I want to address in the next post is dealing with the action space padding since I believe that is where the clumping on a wall behavior arose when clumping in the middle would be more beneficial so agents don't get stuck.
+
 <div class="center">
   <p>
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_30.gif">
   </p>
 </div>
 
-Unsurprisingly this baseline didn't perform all that well after ~20 million steps. It looks like it could go up a little more with more training, but I think it's time to move on to a different architecture.
+That's the end of the post, if you want to try it out yourself here is all of the code that you'll need. Just make sure to change the wandb API key.
 
 ```python
 # Creating the environment
