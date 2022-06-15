@@ -31,7 +31,7 @@ sidebar:
 }
 </style>
 
-Hello and welcome to my first blog post! This is the start of a series of posts where I'm going to be working with the multi-agent [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms) environment of the PettingZoo library and I'll keep adding parts, building it up, testing things out, and later implement a couple of papers I think are interesting.
+Hello and welcome to my first blog post! This is the start of a series of posts where I'm going to be working with the multi-agent [Combined Arms](https://www.pettingzoo.ml/magent/combined_arms) environment of the PettingZoo library. I'll keep adding parts, building it up, testing things out, and later implement a couple of papers I think are interesting.
 <br />
 
 ## Purpose
