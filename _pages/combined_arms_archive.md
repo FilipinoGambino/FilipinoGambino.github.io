@@ -74,11 +74,11 @@ There are 2 teams contained in a 45x45 map and each team is composed of 45 melee
 
 <div class="row">
   <div class="column">
-    Starting Positions
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/combined_arms_v6_opening.png" alt="Starting Position" height=350>
+    <div class="centertext">Starting Positions</div>
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/combined_arms_v6_opening.png" alt="Starting Position">
   </div>
   <div class="column">
-    First Step
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/combined_arms_v6_one_step.png" alt="First Step" height=350>
+    <div class="centertext">First Step</div>
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/combined_arms_v6_one_step.png" alt="First Step">
   </div>
 </div>
