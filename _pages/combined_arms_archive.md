@@ -15,14 +15,14 @@ sidebar:
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: fit-content;
 } 
 
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: fit-content;
 }
  
 .column {
