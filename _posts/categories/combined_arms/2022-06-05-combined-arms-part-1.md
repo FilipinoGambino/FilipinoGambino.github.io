@@ -226,7 +226,6 @@ Step 30 where the reward is highest. There do seem to be less agents stuck betwe
 
 That's the end of the post, if you want to try it out yourself here is all of the code that you'll need. Just make sure to change the wandb API key.
 
-{% include codeHeader.html %}
 ```python
 # Creating the environment
 from pettingzoo.magent import combined_arms_v6
