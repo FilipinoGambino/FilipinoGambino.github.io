@@ -38,7 +38,7 @@ tags:
 Firstly, we need to establish a baseline to compare our future models to; we need to know that whatever modifications we make are actually useful in improving the agents' decisions. Now, allowing the agents to take completely random actions would certainly be a baseline, but the teams aren't evenly distributed on the map and killing an agent requires several attacks in a few time steps. Instead we'll train a small, fully connected network which is the default model in SB3's policy algorithms like PPO. We'll also just use the default parameters for the algorithm with a few exceptions like using a learning rate scheduler instead of the default constant learning rate.
 
 ## Imports
-To get started, we'll do our imports.
+To get started, we'll do our imports. Note the WandB API key to connect to your WandB account.
 
 ```python
 # Creating the environment
@@ -52,9 +52,14 @@ from stable_baselines3.common.vec_env import VecVideoRecorder, VecMonitor
 from stable_baselines3 import PPO
 from stable_baselines3.ppo import MlpPolicy
 
-# For logging
+# For logging on Weights and Biases
 import wandb
 from wandb.integration.sb3 import WandbCallback
+
+# For WandB API key
+import os
+
+os.environ["WANDB_API_KEY"]='YOUR_API_KEY_HERE'
 ```
 
 ## Wrapping the Environment
@@ -62,6 +67,9 @@ The environment is another place we'll be straying from the default values. This
 
 ```python
 def make_env():
+  """
+  :return: a wrapped, combined arms environment ready for logging on WandB
+  """
     env = combined_arms_v6.parallel_env(max_cycles=2000, minimap_mode=True)
     env = ss.pad_action_space_v0(env)
     env = ss.black_death_v3(env)
@@ -71,7 +79,12 @@ def make_env():
     env = ss.pettingzoo_env_to_vec_env_v1(env)
     env = ss.concat_vec_envs_v1(env, 4, num_cpus=2, base_class="gym")
     env = VecMonitor(env, filename=None)
-    env = VecVideoRecorder(env, "videos/", record_video_trigger=lambda x: x % 2048 == 0, video_length=500)
+    env = VecVideoRecorder(
+        env,
+        "videos/",
+        record_video_trigger=lambda x: x % 2048 == 0,
+        video_length=500,
+    )
     return env
 ```
 
@@ -90,14 +103,14 @@ def make_env():
 This is a learning rate scheduler that I found a good number of people using in Kaggle competitions.
 
 ```python
-def lr_scheduler(min_lr: float, max_lr: float, sw_perc: float) -> Callable:
+def lr_scheduler(min_lr, max_lr, sw_perc):
     """
     :param min_lr: Minimum learning rate.
     :param max_lr: Maximum learning rate
     :param sw_perc: Progress interval for piecewise function
     :return: schedule that computes current learning rate depending on remaining progress
     """
-    def func(progress_remaining: float) -> float:
+    def func(progress_remaining):
         """
         Progress will decrease from 1 (beginning) to 0.
 
@@ -121,27 +134,26 @@ Setting the minimum learning rate to 1e-8, the maximum to 1e-4, and the interval
 ## Now we can build our model
 PPO is an off-policy algorithm so here it consists of 2 seperate models, one for the policy network which yields an agent's action given an observation and another for the value network which yields the expected reward given that same observation. The default networks for SB3's PPO are fully connected layers. Further, the melee agents had their action spaces padded to match that of the ranged agents so we do not need a seperate policy-value pair to accomodate that. That might be something to address in a later post by using embeddings or a transformer to differentiate the types of agents.
 
-<br />
 <div class="row">
   <div class="column">
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_network.jpg" alt="Policy Network">
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_network.jpg" alt="Policy Network" height=530 >
   </div>
   <div class="column">
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_network.jpg" alt="Value Network">
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_network.jpg" alt="Value Network" height=530 >
   </div>
 </div>
 <br />
 
-Now we write a quick config dictionary since we'll need to pass some of the parameters when we initialize wandb and then we can assemble our model.
+Now we write a quick config dictionary since we'll need to pass some of the parameters when we initialize WandB and then we can assemble our model.
 
 ```python
 config = {
     "learning_rate": lr_scheduler(1e-8, 1e-4, 0.2),
     "total_timesteps": int(2e7),
-    "log": "/runs/ppo",
+    "log": "runs/baseline",
 }
 
-env = make_env(config["log"])
+env = make_env()
 
 model = PPO(
     "MlpPolicy",
@@ -159,19 +171,135 @@ Then all we have left to do is initialize our wandb instance for logging and we 
 ```python
 wandb.init(
     config=config,
-    name="baseline_ppo",
+    name="baseline",
     project="combined_arms_v6",
     sync_tensorboard=True,  # automatically upload SB3's tensorboard metrics to W&B
     monitor_gym=True,       # automatically upload gym environements' videos
     save_code=True,
 )
 
-model.learn(total_timesteps=config.total_timesteps)
+model.learn(total_timesteps=config["total_timesteps"])
 wandb.finish()
 ```
 ## Results
+Let's take a look at a few of the videos at some of the interesting points.
+
+First step 0, just to take a look at the initial parameters.
+<video autoplay>
+  <source src="assets/videos/baseline_step_0.mp4" type="video/mp4">
+</video>
+
+Step 12 when the episode length is really decreasing meaning one team is getting eliminated faster.
+<video autoplay>
+  <source src="assets/videos/baseline_step_12.mp4" type="video/mp4">
+</video>
+
+Step 24 where reward is still increasing, but the episode length has a spike.
+<video autoplay>
+  <source src="assets/videos/baseline_step_24.mp4" type="video/mp4">
+</video>
+
+Step 30 where the reward is highest.
+<video autoplay>
+  <source src="assets/videos/baseline_step_30.mp4" type="video/mp4">
+</video>
+
 <p>
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_wandb.jpg">
 </p>
 
-Unsurprisingly this baseline didn't perform all that well after ~20 million steps. It looks like it could go up a little more with more training, but I think it's time to move on to a different architecture. In the [next post](https://filipinogambino.github.io/ngorichs/blog/combined-arms-part-2/) I'll be building a convolutional neural network along with some embeddings to differentiate the different types of agents.
+Unsurprisingly this baseline didn't perform all that well after ~20 million steps. It looks like it could go up a little more with more training, but I think it's time to move on to a different architecture.
+
+```python
+# Creating the environment
+from pettingzoo.magent import combined_arms_v6
+
+# Wrapping the environment
+import supersuit as ss
+from stable_baselines3.common.vec_env import VecVideoRecorder, VecMonitor
+
+# For the policy algorithm
+from stable_baselines3 import PPO
+from stable_baselines3.ppo import MlpPolicy
+
+# For logging on Weights and Biases
+import wandb
+from wandb.integration.sb3 import WandbCallback
+
+# For WandB API key
+import os
+
+os.environ["WANDB_API_KEY"]='YOUR_API_KEY_HERE'
+
+def make_env():
+    """
+    :return: a wrapped, combined arms environment ready for logging on WandB
+    """
+    env = combined_arms_v6.parallel_env(max_cycles=2000, minimap_mode=True)
+    env = ss.pad_action_space_v0(env)
+    env = ss.black_death_v3(env)
+    env = ss.agent_indicator_v0(env, type_only=True)
+    # env = ss.frame_skip_v0(env, (1,3))
+    env = ss.sticky_actions_v0(env, 0.3)
+    env = ss.pettingzoo_env_to_vec_env_v1(env)
+    env = ss.concat_vec_envs_v1(env, 4, num_cpus=2, base_class="gym")
+    env = VecMonitor(env, filename=None)
+    env = VecVideoRecorder(
+        env,
+        "videos/",
+        record_video_trigger=lambda x: x % 2048 == 0,
+        video_length=500,
+    )
+    return env
+
+def lr_scheduler(min_lr, max_lr, sw_perc):
+    """
+    :param min_lr: Minimum learning rate.
+    :param max_lr: Maximum learning rate
+    :param sw_perc: Progress interval for piecewise function
+    :return: schedule that computes current learning rate depending on remaining progress
+    """
+    def func(progress_remaining):
+        """
+        Progress will decrease from 1 (beginning) to 0.
+
+        :param progress_remaining:
+        :return: current learning rate
+        """
+        x = 1 - progress_remaining
+        if x < sw_perc:
+            return max_lr * (x / sw_perc) + min_lr
+        else:
+            return max_lr * (max_lr*100) ** ((x - sw_perc) / (1 - sw_perc))
+
+    return func
+
+config = {
+    "learning_rate": lr_scheduler(1e-8, 1e-4, 0.2),
+    "total_timesteps": int(2e7),
+    "log": "runs/baseline",
+}
+
+env = make_env()
+
+model = PPO(
+    "MlpPolicy",
+    env,
+    verbose=1,
+    learning_rate=config["learning_rate"],
+    tensorboard_log=config["log"],
+    seed=42,
+)
+
+wandb.init(
+    config=config,
+    name="baseline",
+    project="combined_arms_v6",
+    sync_tensorboard=True,  # automatically upload SB3's tensorboard metrics to W&B
+    monitor_gym=True,       # automatically upload gym environements' videos
+    save_code=True,
+)
+
+model.learn(total_timesteps=config["total_timesteps"])
+wandb.finish()
+```
