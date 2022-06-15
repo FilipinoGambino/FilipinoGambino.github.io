@@ -89,4 +89,3 @@ There are 2 teams contained in a 45x45 map and each team is composed of 45 melee
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/combined_arms_v6_opening.png" alt="Agents in Action">
   </div>
 </div>
-<!-- baseline_untrained.gif -->
