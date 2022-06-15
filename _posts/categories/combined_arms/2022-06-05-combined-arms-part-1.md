@@ -136,10 +136,10 @@ PPO is an off-policy algorithm so here it consists of 2 seperate models, one for
 
 <div class="row">
   <div class="column">
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_network.jpg" alt="Policy Network" height=530px >
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_network.jpg" alt="Policy Network">
   </div>
   <div class="column">
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_network.jpg" alt="Value Network" height=530px >
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_network.jpg" alt="Value Network">
   </div>
 </div>
 <br />
