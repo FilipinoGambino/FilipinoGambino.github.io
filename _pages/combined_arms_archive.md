@@ -19,7 +19,7 @@ sidebar:
 } 
  
 .column {
-  float: center;
+  float: left;
   width: 50%;
   padding: 5px;
 }
