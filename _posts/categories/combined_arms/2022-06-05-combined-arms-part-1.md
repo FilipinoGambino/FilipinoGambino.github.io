@@ -136,10 +136,10 @@ PPO is an off-policy algorithm so here it consists of 2 seperate models, one for
 
 <div class="row">
   <div class="column">
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_network.jpg" alt="Policy Network" height=530 >
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_policy_network.jpg" alt="Policy Network" max-height=530 >
   </div>
   <div class="column">
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_network.jpg" alt="Value Network" height=530 >
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_value_network.jpg" alt="Value Network" max-height=530 >
   </div>
 </div>
 <br />
@@ -185,10 +185,10 @@ wandb.finish()
 Let's take a look at a few of the videos at some of the interesting points.
 <div class="row">
   <div class="column">
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/W&B Chart baseline episode mean len.png" alt="Episode mean length" height=400 >
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/W&B Chart baseline episode mean len.png" alt="Episode mean length" max-height=300 >
   </div>
   <div class="column">
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/W&B Chart baseline episode mean rew.png" alt="Episode mean reward" height=400 >
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/W&B Chart baseline episode mean rew.png" alt="Episode mean reward" max-height=300 >
   </div>
 </div>
 <br />
