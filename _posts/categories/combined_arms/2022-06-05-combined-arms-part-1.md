@@ -232,10 +232,6 @@ Let's take a look at a few of the videos at some of the interesting points.
   </p>
 </div>
 
-<p>
-  <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_wandb.jpg">
-</p>
-
 Unsurprisingly this baseline didn't perform all that well after ~20 million steps. It looks like it could go up a little more with more training, but I think it's time to move on to a different architecture.
 
 ```python
