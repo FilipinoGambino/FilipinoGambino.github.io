@@ -196,7 +196,7 @@ Let's take a look at a few of the videos at some of the interesting points.
 First step 0, just to take a look at the initial parameters.
 <div class="center">
   <p>
-      <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_0.gif">
+      <img src="https://filipinogambino.github.io/ngorichs/assets/images/baseline_step_0_new.gif">
   </p>
 </div>
 
