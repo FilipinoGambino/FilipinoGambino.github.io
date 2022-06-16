@@ -14,7 +14,7 @@ tags:
   - WandB
 ---
 
-In this post we'll be trying out a CNN paired with some embeddings and an LSTM to see if we can beat the baseline from the previous post. CNN filters because our input is a picture, embeddings to differentiate the 4 types of agents, and some memory from an LSTM because it takes multiple attacks to eliminate an agent.
+In this post we'll be trying out a different architecture. We'll use CNN filters to understand spatial features, some embeddings to differentiate the 4 types of agents, and an LSTM to give our agents an understanding of odometry.
 
 <p>
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/cnn.jpg">
@@ -24,8 +24,7 @@ To replace the default architecture in stable-baseline3 we need to create a dict
 ```python
 policy_kwargs = dict(
     features_extractor_class=CombinedArmsFeatures,
-    net_arch=[256, dict(vf=[256, 128, 64],
-                        pi=[128, 64])],
+    net_arch=[256, 128, 64],
     activation_fn = nn.ReLU,)
 
 env = make_env()
