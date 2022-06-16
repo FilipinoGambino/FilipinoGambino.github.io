@@ -67,6 +67,7 @@ os.environ["WANDB_API_KEY"]='YOUR_API_KEY_HERE'
 ## Wrapping the Environment
 The environment is another place we'll be straying from the default values. This includes *minimap_mode* which adds 6 layers containing agent locations to the observation space and the *agent_indicator* wrapper with *type_only* set to "True" which adds a sort of one-hot encoding set of layers to the observation space for each of the 4 types of agents (friendly ranged, friendly melee, enemy ranged, enemy melee).
 
+With all of this information we end up with with an observation space of (13, 13, 19). That's a 13x13 map for an agent viewing radius of 6 plus 1 for the gridbox they're in. For the 19 channels: 9 are default, 6 are from *minimap_mode*, and 4 are from the one-hot encoding.
 ```python
 def make_env():
   """
@@ -135,7 +136,7 @@ Setting the minimum learning rate to 1e-8, the maximum to 1e-4, and the interval
 </div>
 
 ## Now we can build our model
-PPO is an off-policy algorithm so here it consists of 2 seperate models, one for the policy network which yields an agent's action given an observation and another for the value network which yields the expected reward given that same observation. The default networks for SB3's PPO are fully connected layers. Further, the melee agents had their action spaces padded to match that of the ranged agents so we do not need a seperate policy-value pair to accomodate that. That might be something to address in a later post by using embeddings or a transformer to differentiate the types of agents.
+PPO is an off-policy algorithm so here it consists of 2 seperate models, one for the policy network which yields an agent's action given an observation and another for the value network which yields the expected reward given that same observation. The default networks for SB3's PPO are fully connected layers, so the input size is `13*13*19` resulting in 3211 input nodes. Further, the melee agents had their action spaces padded to match that of the ranged agents so we do not need a seperate policy-value pair to accomodate that. That might be something to address in a later post by using embeddings or a transformer to differentiate the types of agents.
 
 <div class="row">
   <div class="column">
