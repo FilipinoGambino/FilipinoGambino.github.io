@@ -14,7 +14,8 @@ tags:
   - WandB
 ---
 
-Another architecture I would like to try is a pretty standard CNN with max pooling, batch normalization, and dropout, but I also want to learn the differences between the four types of units so I'll add four of embeddings for that.
+In this post we'll be trying out a CNN paired with some embeddings and an LSTM to see if we can beat the baseline from the previous post. CNN filters because our input is a picture, embeddings to differentiate the 4 types of agents, and some memory from an LSTM because it takes multiple attacks to eliminate an agent.
+
 <p>
     <img src="https://filipinogambino.github.io/ngorichs/assets/images/cnn.jpg">
 </p>
@@ -38,9 +39,6 @@ model = PPO(
     policy_kwargs=policy_kwargs,
 )
 ```
-<p>
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/cnn_emb_wandb.jpg">
-</p>
 
 <iframe src="https://wandb.ai/filipinogambino/Combined_Arms_v6/reports/Combined-Arms-Report--VmlldzoyMTI5OTk3?accessToken=bjajeycpq7husvl3jhozn7yo20qo54aw5tut5epw7e0d6uomje62tpbu4ctbufrj" title="WandB" style="border:none; height:512px; width:100%">
 </iframe>
