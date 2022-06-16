@@ -67,7 +67,7 @@ os.environ["WANDB_API_KEY"]='YOUR_API_KEY_HERE'
 ## Wrapping the Environment
 The environment is another place we'll be straying from the default values. This includes *minimap_mode* which adds 6 layers containing agent locations to the observation space and the *agent_indicator* wrapper with *type_only* set to "True" which adds a sort of one-hot encoding set of layers to the observation space for each of the 4 types of agents (friendly ranged, friendly melee, enemy ranged, enemy melee).
 
-With all of this information we end up with with an observation space of (13, 13, 19). That's a 13x13 map for an agent viewing radius of 6 plus 1 for the gridbox they're in. For the 19 channels: 9 are default, 6 are from *minimap_mode*, and 4 are from the one-hot encoding.
+With all of this information we end up with with an observation space of (13, 13, 19). That's a 13x13 map for an agent viewing diameter of 12 plus 1 for the gridbox they're in. For the 19 channels: 9 are default, 6 are from *minimap_mode*, and 4 are from the one-hot encoding.
 ```python
 def make_env():
   """
