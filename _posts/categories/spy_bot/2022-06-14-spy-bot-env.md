@@ -38,6 +38,7 @@ tags:
 This page is under development
 
 
+```python
 class MarketEnv(gym.Env):
     metadata = {'render.modes': ['human']}
 
@@ -131,3 +132,4 @@ class MarketEnv(gym.Env):
         self.rfsum = 0
         
         return torch.zeros(CONFIG.BS,nfeats)
+```
