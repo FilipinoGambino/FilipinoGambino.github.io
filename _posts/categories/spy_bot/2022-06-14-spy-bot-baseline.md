@@ -37,7 +37,7 @@ tags:
 
 This page is under development
 
-
+```python
 class DeepQNetwork(nn.Module):
     def __init__(self, model, n_actions, n_cont, emb_dims, hidden_size, nlayers, name, chkpt_dir):
         # https://yashuseth.blog/2018/07/22/pytorch-neural-network-for-tabular-data-with-categorical-embeddings/
@@ -93,3 +93,4 @@ class DeepQNetwork(nn.Module):
         out = self.relu(out)
         out = self.fc_3(out)
         return torch.softmax(out,1)
+```
