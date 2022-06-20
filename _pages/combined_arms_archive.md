@@ -1,4 +1,5 @@
 ---
+title: Combined Arms
 layout: archive
 permalink: /combined_arms/archive/
 taxonomy: combined_arms
