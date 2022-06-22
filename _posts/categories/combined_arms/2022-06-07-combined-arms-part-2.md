@@ -17,7 +17,7 @@ tags:
 In this post we'll be trying out a different architecture. We'll use CNN filters to understand spatial features, embeddings to differentiate the 4 types of agents, and an LSTM to give our agents some understanding of odometry.
 
 <p>
-    <img src="https://filipinogambino.github.io/ngorichs/assets/images/drawio/cnn_emb_lstm.jpg">
+    <img src="https://filipinogambino.github.io/ngorichs/assets/images/cnn_emb_lstm.jpg">
 </p>
 
 
