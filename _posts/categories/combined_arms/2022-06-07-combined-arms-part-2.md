@@ -22,7 +22,7 @@ In this post we'll be trying out a different policy architecture that should be 
 
 This architecture was heavily influenced by [Samuel Shaw et al.'s paper "ForMIC: Foraging via Multiagent RL with Implicit Communication"](https://arxiv.org/pdf/2006.08152.pdf) and my next post will likely be integrating some form of pheromones into this policy.
 
-In any case, we're going to add two environment wrappers so we can run the LSTM cell. For the first wrapper, supersuit has a lambda method (called *observation_lambda_v0*) that we can use to write our own wrapper and we'll use it to transpose the observation to put channels first <code>from (Height, Width, Channels) to (Channels, Height, Width)</code> since that is what pytorch is expecting. The second wrapper simply stacks a pair of frames (at timesteps t and t-1 for a *stack_size* of two) to be used in the LSTM cell (this one's called *frame_stack_v1*). We can also remove the sticky_actions wrapper from the last post because of our agents have memory now.
+In any case, we're going to add two environment wrappers so we can run the LSTM cell. For the first wrapper, supersuit has a lambda method (called *observation_lambda_v0*) that we can use to write our own wrapper and we'll use it to transpose the observation to put channels first <code>from (Height, Width, Channels) to (Channels, Height, Width)</code> since that is what pytorch is expecting. The second wrapper simply stacks a pair of frames (at timesteps t and t-1 for a *stack_size* of two) to be used in the LSTM cell (this one's called *frame_stack_v1*). We can also remove the sticky_actions wrapper from the last post because our agents have memory now.
 
 ```python
 def make_env():
@@ -43,7 +43,7 @@ def make_env():
 ```
 
 # Building the Policy
-The policy will be assembled in the below class inheriting from pytorch's nn.Module class.
+The policy will be assembled in the following class and inherit from pytorch's nn.Module class.
 ```python
 class CombinedArmsFeatures(nn.Module):
     """
@@ -88,13 +88,13 @@ with torch.no_grad():
     n_flatten = self.cnn(torch.as_tensor(obs[None]).float()).shape[1]
 ```
 
-Now, moving on to the LSTM. This one is pretty simple. 64 channels in and 64 channels out.
+Moving on to the LSTM; this one is pretty simple. 64 channels in and 64 channels out.
 
 ```python
 self.lstm = nn.LSTM(64, 64, batch_first=True)
 ```
 
-For the embeddings, the input starts as a 4x13x13 one-hot encoding for each of the four agent types, so we remove all of the excess and pass along a 4x1 one-hot encoding.
+For the embeddings, the input starts as a 4x13x13 one-hot encoding for each of the four agent types, so we remove all of the excess/redundant information and pass along a 4x1 one-hot encoding.
 
 ```python
 n_agent_types = 4
@@ -107,7 +107,7 @@ self.emb = nn.Sequential(
 )
 ```
 
-Tieing all of these components together, we concatenate them and send them through a series of fully connected layers. There are only two such layers here, but SB3 has another way of passing the output from here to the action and value policies which plays into the next step.
+Tieing all of these components together, we concatenate them and send them through a series of fully connected layers. There are only two such layers here, but SB3 has another way of assembling the seperate action and value policies which plays into the next step.
 
 ```python
 self.fc = nn.Sequential(
@@ -118,7 +118,7 @@ self.fc = nn.Sequential(
 )
 ```
 
-In SB3, we can use our own policy feature extractor by passing it in a dictionary. We can also pass in the dimensions of the linear layers for the action policy and value policy in the *net_arch* variable along with the activation function in *activation_fn*.
+In SB3, we can use our own new "policy feature extractor" by passing it in a dictionary. We can also pass in the dimensions of the linear layers for the action policy and value policy in the *net_arch* variable along with the activation function in *activation_fn*.
 
 ```python
 policy_kwargs = dict(
@@ -129,7 +129,7 @@ policy_kwargs = dict(
     )
 ```
 
-One last thing to change from the last post is replacing "MlpPolicy" with "CnnPolicy" so that we receive the observations with the correct shape. Now, all that's left to do is call the PPO class and train our policy.
+One last thing to change from the last post is replacing "MlpPolicy" with "CnnPolicy" so that we receive the observations with the correct shape. Now, all that's left to do is call the SB3's PPO class and train our policy.
 ```python
 env = make_env()
                      
