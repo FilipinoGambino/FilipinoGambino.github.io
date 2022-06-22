@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-22T03:53:36.185Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="1EZ8S_8njCyl8t8hzylT" version="20.0.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-22T03:54:24.185Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="7juMgy5f0hEfLe98-W8B" version="20.0.1" type="github">
   <diagram id="5hiqjDNLy4zyRDHusccU" name="Page-1">
     <mxGraphModel dx="3226" dy="120" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -287,6 +287,9 @@
         </mxCell>
         <mxCell id="PGIYKK-JV2RwreKTZmfG-122" value="8x1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;" vertex="1" parent="1">
           <mxGeometry x="633" y="1721" width="42" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="PGIYKK-JV2RwreKTZmfG-123" value="Input Tensor" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;rotation=-45;" vertex="1" parent="1">
+          <mxGeometry x="-251" y="1874" width="120" height="28" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
