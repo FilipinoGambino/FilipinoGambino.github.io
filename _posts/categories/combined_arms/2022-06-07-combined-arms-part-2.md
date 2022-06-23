@@ -22,7 +22,9 @@ In this post we'll be trying out a different policy architecture that should be 
 
 This architecture was heavily influenced by [Samuel Shaw et al.'s paper "ForMIC: Foraging via Multiagent RL with Implicit Communication"](https://arxiv.org/pdf/2006.08152.pdf) and my next post will likely be integrating some form of pheromones into this policy.
 
-In any case, we're going to add two environment wrappers so we can run the LSTM cell. For the first wrapper, supersuit has a lambda method (called *observation_lambda_v0*) that we can use to write our own wrapper and we'll use it to transpose the observation to put channels first <code>from (Height, Width, Channels) to (Channels, Height, Width)</code> since that is what pytorch is expecting. The second wrapper simply stacks a pair of frames (at timesteps t and t-1 for a *stack_size* of two) to be used in the LSTM cell (this one's called *frame_stack_v1*). We can also remove the sticky_actions wrapper from the last post because our agents have memory now.
+
+# Environment Wrapper Changes
+We're going to add two environment wrappers so we can run the LSTM cell. For the first wrapper, supersuit has a lambda method (called *observation_lambda_v0*) that we can use to write our own wrapper and we'll use it to transpose the observation to put channels first <code>from (Height, Width, Channels) to (Channels, Height, Width)</code> since that is what pytorch is expecting. The second wrapper simply stacks a pair of frames (at timesteps t and t-1 for a *stack_size* of two) to be used in the LSTM cell (this one's called *frame_stack_v1*). We can also remove the sticky_actions wrapper from the last post because our agents have memory now.
 
 ```python
 def make_env():
