@@ -24,7 +24,7 @@ This architecture was heavily influenced by [Samuel Shaw et al.'s paper "ForMIC:
 
 
 # Environment Wrapper Changes
-We're going to add two environment wrappers so we can run the LSTM cell. For the first wrapper, supersuit has a lambda method (called *observation_lambda_v0*) that we can use to write our own wrapper and we'll use it to transpose the observation to put channels first <code>from (Height, Width, Channels) to (Channels, Height, Width)</code> since that is what pytorch is expecting. The second wrapper simply stacks a pair of frames (at timesteps t and t-1 for a *stack_size* of two) to be used in the LSTM cell (this one's called *frame_stack_v1*). We can also remove the sticky_actions wrapper from the last post because our agents have memory now.
+The two wrappers we're going to add are *observation_lambda_v0* and *frame_stack_v1*. The first wrapper is supersuit's own observation lambda function that we can use to write our own wrapper and we'll use it to transpose the observation to put channels first (<code>from (Height, Width, Channels) to (Channels, Height, Width)</code>) since that is what the pytorch Conv2D layers are expecting. The latter wrapper simply stacks a set of observation frames (at timesteps t, t-1,...,t-n where n=stack_size-1) to be used in the LSTM cell. We can also remove the sticky_actions wrapper from the part 1 post because our agents have memory now. I'd be interested to see if sticky_actions actually helped the agents eliminate enemy agents in the early training stages.
 
 ```python
 def make_env():
@@ -58,7 +58,7 @@ class CombinedArmsFeatures(nn.Module):
     def forward(self, observations: torch.Tensor):
 ```
 
-Starting with the convolution filters, we want to increase the number of filters to extract information while allowing our max pooling layers to decrease the height and width of the input frames. Of course, we're also constrained by training speed so we'll keep our filter count resonable. We'll be putting both the time *t* and *t-1* agent observations through the CNN, so we also use a flatten layer at the end so we can concatenate the observations for the memory cell.
+Starting with the convolution filters, we want to increase the number of filters to extract information while allowing our max pooling layers to decrease the height and width of the input frames. Of course, we're also constrained by training speed so we'll keep our filter count resonable. We'll be putting both the time *t* and *t-1* agent observations through the CNN, so we also use a flatten layer at the end so we can concatenate the observations for the LSTM layer.
 
 ```python
 self.cnn = nn.Sequential(
@@ -81,7 +81,7 @@ self.cnn = nn.Sequential(
 )
 ```
 
-Further, we need to know the shape of the flatten layer's output so that the next layer knows what to expect. We can get that dynamically by grabbing a sample observation and running it through the CNN. For that, a batch dimension is also required, so we add one with <code>obs[None]</code> and convert it to a pytorch tensor.
+Further, we need to know the shape of the flatten layer's output so that the next layer knows what input size it should expect. I'll note that technically we don't need the flatten layer here since this architecture's final convolution layer outputs a 64x1x1, but if we want to change anything in the cnn, we'll likely need it. Anyway, we can get output shape dynamically by grabbing a sample observation and running it through the CNN. For that, a batch dimension is necessary so we add one with <code>obs[None]</code> and convert it to a pytorch tensor.
 
 ```python
 with torch.no_grad():
@@ -90,7 +90,7 @@ with torch.no_grad():
     n_flatten = self.cnn(torch.as_tensor(obs[None]).float()).shape[1]
 ```
 
-Moving on to the LSTM; this one is pretty simple. 64 channels in and 64 channels out.
+Moving on to the LSTM; this one is pretty simple. 64 features in and 64 features out. We'll just let pytorch handle the cell and hidden states.
 
 ```python
 self.lstm = nn.LSTM(64, 64, batch_first=True)
@@ -146,7 +146,9 @@ model = PPO(
 ```
 
 # Results
-*Training should be complete by morning of 6/23*
+<iframe src="https://wandb.ai/filipinogambino/Combined_Arms_v6/reports/Episode-Reward-Mean-22-06-23-15-06-43---VmlldzoyMjE2OTY3" style="border:none;height:1024px;width:100%">
+</iframe>
+Unfortunately, it looks like our policy was not able to outperform the baseline policy. What's more is that each run at 20,000,000 steps with 4 parallel environments takes about 1.3 days to train and thus has gotten rather expensive. I would love to manually play around with the parameters of this model or try out some hyperparameter tuning, but my wallet says I need to just move on to the pheromones paper. :upside_down_face:
 
 
 Here's everything put together.
@@ -240,7 +242,3 @@ model = PPO(
     policy_kwargs=policy_kwargs,
 )
 ```
-
-<iframe src="https://wandb.ai/filipinogambino/Combined_Arms_v6/reports/Combined-Arms-Report--VmlldzoyMTI5OTk3?accessToken=bjajeycpq7husvl3jhozn7yo20qo54aw5tut5epw7e0d6uomje62tpbu4ctbufrj" title="WandB" style="border:none; height:512px; width:100%">
-</iframe>
-
