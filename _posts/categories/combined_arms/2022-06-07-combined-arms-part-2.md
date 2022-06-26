@@ -148,7 +148,7 @@ model = PPO(
 # Results
 <iframe src="https://wandb.ai/filipinogambino/Combined_Arms_v6/reports/Episode-Reward-Mean-22-06-23-15-06-43---VmlldzoyMjE2OTY3" style="border:none;height:1024px;width:100%">
 </iframe>
-Unfortunately, it looks like our policy was not able to outperform the baseline policy. What's more is that each run at 20,000,000 steps with 4 parallel environments takes about 1.3 days to train and thus has gotten rather expensive. I would love to manually play around with the parameters of this model or try out some hyperparameter tuning, but my wallet says I need to just move on to the pheromones paper. :upside_down_face:
+Unfortunately, it looks like our policy was not able to outperform the baseline policy. What's more is that each run at 20,000,000 steps with 4 parallel environments takes about 1.3 days to train and thus has gotten rather expensive. I would love to manually play around with the parameters of this model or try out some hyperparameter tuning, but my wallet says I need to just move on to the pheromones paper.    <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f643.png">
 
 
 Here's everything put together.
