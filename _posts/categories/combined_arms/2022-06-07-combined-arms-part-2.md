@@ -109,7 +109,7 @@ self.emb = nn.Sequential(
 )
 ```
 
-Tieing all of these components together, we concatenate them and send them through a series of fully connected layers. There are only two such layers here, but SB3 has another way of assembling the seperate action and value policies which plays into the next step.
+Tying all of these components together, we concatenate them and send them through a series of fully connected layers. There are only two such layers here, but SB3 has another way of assembling the seperate action and value policies which plays into the next step.
 
 ```python
 self.fc = nn.Sequential(
