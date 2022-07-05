@@ -229,10 +229,29 @@ class CombinedArmsFeatures(nn.Module):
 policy_kwargs = dict(
     features_extractor_class=CombinedArmsFeatures,
     net_arch=[256, 128, 64],
-    activation_fn = nn.ReLU,)
+    activation_fn = nn.ReLU,
+    )
 
 env = make_env()
-                     
+
+config = {
+    "name": "cnn",
+    "project": "combined_arms",
+    "log": "runs/cnn",
+    "seed": 42,
+    "models": "models",
+    "total_timesteps": 20_000_000
+    }
+
+wandb.init(
+    config=config,
+    sync_tensorboard=True,  # automatically upload SB3's tensorboard metrics to W&B
+    name=config["name"],
+    project=config["gym_id"],
+    monitor_gym=True,       # automatically upload gym environements' videos
+    save_code=True,
+)
+
 model = PPO(
     "CnnPolicy",
     env,
@@ -240,5 +259,16 @@ model = PPO(
     verbose=1,
     tensorboard_log=config['log'],
     policy_kwargs=policy_kwargs,
+    seed=config["seed"],
 )
+
+model.learn(
+    total_timesteps=config["total_timesteps"],
+    callback=WandbCallback(
+        model_save_freq=2048,
+        model_save_path=config["models"],
+    )
+)
+
+wandb.finish()
 ```
